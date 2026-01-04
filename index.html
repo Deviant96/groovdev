@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GroovDev — Make it happen</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="nunito-sans-regular">
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="logo">GroovDev</div>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#about" data-i18n="nav_about">Tentang</a>
+        <a href="#portfolio" data-i18n="nav_portfolio">Portofolio</a>
+        <a href="#contact" data-i18n="nav_contact">Kontak</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="lang-toggle" id="langToggle">ID</button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+    <section class="hero">
+    <div class="container hero-inner">
+        <!-- 50% image area -->
+        <div class="hero-stage">
+        <div class="hero-visual">
+            <div class="abstract-placeholder"></div>
+
+            <!-- bottom-middle overlay text -->
+            <div class="hero-overlay" aria-label="GroovDev hero text">
+            <p class="hero-small nunito-sans-regular-mono" data-i18n="hero_small">make it happen with GroovDev</p>
+            <h1 class="hero-big heading-font">GROOVDEV</h1>
+            </div>
+        </div>
+        </div>
+
+        <!-- 50% negative space -->
+        <!-- <div class="hero-space" aria-hidden="true"></div> -->
+    </div>
+    </section>
+
+
+  <!-- ABOUT -->
+  <section id="about" class="section light">
+    <div class="container">
+      <h2 class="section-title heading-font" data-i18n="about_title">
+        Pembuat website yang handal ada di sini untuk anda
+      </h2>
+
+      <div class="about-text">
+        <h3 class="heading-font" data-i18n="about_sub1">siapa groovdev</h3>
+        <p data-i18n="about_desc1">
+          we are Indonesian based group of independent web developer and designer,
+          aiming to help local small business grow their digital presence.
+        </p>
+        <p>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+          ut aliquip ex ea commodo consequat.
+        </p>
+
+        <h3 class="heading-font" data-i18n="about_sub2">Kenapa memilih Groovdev</h3>
+        <p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat.
+        </p>
+      </div>
+
+      <div class="about-cards">
+        <div class="about-card">
+          <span class="icon"><img src="./assets/images/Berpengalaman_icon.png" alt="" /></span>
+          <div class="about-card-text">
+            <h4>Berpengalaman</h4>
+            <p>
+              Membangun website berbagai jenis bisnis, UMKM, hingga lembaga yayasan,
+              kami siap membantu anda
+            </p>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <span class="icon"><img src="./assets/images/Terpadu_icon.png" alt="" /></span>
+          <div class="about-card-text">
+            <h4>Terpadu</h4>
+            <p>
+              Semua proyek dirancang secara profesional dan anda akan dipandu dari
+              awal hingga siap online dan berkembang
+            </p>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <span class="icon"><img src="./assets/images/Terjangkau_icon.png" alt="" /></span>
+          <div class="about-card-text">
+            <h4>Terjangkau</h4>
+            <p>
+              Website berkualitas dengan fitur dan fungsi yang flexible
+              menyesuaikan budget dan kebutuhan bisnis anda
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title heading-font">
+        Urusan Dunia Digital<br />
+        Semua bisa GroovDev Tangani
+      </h2>
+      <p class="section-subtitle">our services</p>
+
+      <div class="services-grid" id="servicesGrid"></div>
+      <div class="service-detail" id="serviceDetail"></div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="section dark">
+    <div class="container">
+      <h2 class="section-title white">Our Portofolio</h2>
+
+      <div class="slider" id="slider" aria-label="Portfolio slider">
+        <button class="slider-arrow prev" type="button" aria-label="Previous slide">‹</button>
+
+        <div class="slides" id="slides" role="list"></div>
+
+        <button class="slider-arrow next" type="button" aria-label="Next slide">›</button>
+
+        <div class="slider-dots" id="sliderDots" aria-label="Slide navigation"></div>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-box">
+      <div class="cta-image">
+        <img src="./assets/images/cta_image.png" alt="" loading="lazy" />
+      </div>
+      <div class="cta-content">
+        <h3 >Website keren bukan pilihan, tapi kebutuhan!</h3>
+        <p>
+          Hubungi kami untuk konsultasi online gratis dan mulai bangun website
+          untuk bisnismu sekarang.
+        </p>
+        <button class="btn-cta" data-scroll="#contact">
+          Hubungi Kami
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section light">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h2 class="heading-font">Kontak Kami</h2>
+        <div class="contact-intro" data-i18n="contact_intro">
+          Ingin berdiskusi lebih lanjut tentang kebutuhan website anda?
+          Silakan hubungi kami melalui informasi di bawah atau isi formulir
+          kontak yang tersedia.
+        </div>
+
+        <div class="contact-separator"></div>
+
+        <div class="contact-item">
+          <span class="contact-icon">
+            <a href="https://wa.me/628888888888" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/images/phone_icon.png" alt="" />
+            </a>
+          </span>
+          <div class="contact-text">
+            <h3>Telepon</h3>
+            <p> +62 8888 8888</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <span class="contact-icon">
+            <a href="mailto:info@groovdev.co.id" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/images/email_icon.png" alt="" />
+            </a>
+          </span>
+          <div class="contact-text">
+            <h3>Email</h3>
+            <p> info@groovdev.co.id</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <span class="contact-icon">
+            <a href="https://goo.gl/maps/example" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/images/location_icon.png" alt="" />
+            </a>
+          </span>
+          <div class="contact-text">
+            <h3>Alamat</h3>
+            <p> DKI Jakarta</p>
+          </div>
+        </div>
+        
+        <div class="contact-consultation"><span><img src="./assets/images/konsultasi_online.png" alt="" /></span> <strong style="display: contents; margin-bottom:12px;">Konsultasi Online Gratis</strong><br> Jam Kerja<br>Senin - Jumat<br> 09.00 - 17.00 WIB</div>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <label>
+          Nama
+          <input type="text" name="name" required placeholder="Nama Lengkap" />
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" required placeholder="email@anda.com" />
+        </label>
+
+        <label>
+          Telepon
+          <input type="tel" name="phone" placeholder="0812..." />
+        </label>
+
+        <label>
+          Pesan
+          <textarea name="message" required placeholder="Tulis pesan anda disini..."></textarea>
+        </label>
+
+        <button type="submit" class="btn-submit">Kirim Form</button>
+      </form>
+    </div>
+  </section>
+  
+  <!-- INSTAGRAM -->
+  <section class="section lavender">
+    <div class="container">
+      <h2>Follow instagram kami</h2>
+      <a class="ig-link" href="https://instagram.com/groovdev/" target="_blank" rel="noopener noreferrer">@groovdev</a>
+
+      <div class="ig-grid">
+        <a href="https://www.instagram.com/groovdev/p/DSl7UxYD3Js/" class="ig-item" target="_blank"><img src="./assets/images/instagram_posts/ig1.jpg" loading="lazy" /></a>
+        <a href="https://www.instagram.com/groovdev/p/DSl7UxYD3Js/" class="ig-item" target="_blank"><img src="./assets/images/instagram_posts/ig2.jpg" loading="lazy" /></a>
+        <a href="https://www.instagram.com/groovdev/p/DSl7UxYD3Js/" class="ig-item" target="_blank"><img src="./assets/images/instagram_posts/ig3.jpg" loading="lazy" /></a>
+        <a href="https://www.instagram.com/groovdev/p/DSl7UxYD3Js/" class="ig-item" target="_blank"><img src="./assets/images/instagram_posts/ig4.jpg" loading="lazy" /></a>
+        <a href="https://www.instagram.com/groovdev/p/DSl7UxYD3Js/" class="ig-item" target="_blank"><img src="./assets/images/instagram_posts/ig5.jpg" loading="lazy" /></a>
+        <a href="https://www.instagram.com/groovdev/p/DSl7UxYD3Js/" class="ig-item" target="_blank"><img src="./assets/images/instagram_posts/ig6.jpg" loading="lazy" /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-box">
+      <div class="logo"><img src="./assets/images/logo.png" alt="GroovDev Logo" /></div>
+      <span class="badge heading-font">GROOVDEV</span>
+
+      <div class="social-media">
+        <a href="https://instagram.com/groovdev" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="https://facebook.com/groovdev" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/628888888888" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+        </a>
+      </div>
+
+      <p id="brand-slogan" class="brand-slogan">make it happen with GroovDev - your groovy web developer</p>
+
+      <span class="smiley"><img src="./assets/images/smiley.png" alt="" /></span>
+
+      <hr />
+
+      <small class="copyright">
+        Copyright © 2025 GroovDev Indonesia | All Rights Reserved |
+        Kebijakan Privasi<br />
+        Build by GroovDev
+      </small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
