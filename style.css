@@ -512,9 +512,9 @@ a {
   height: 380px;
 }
 
-.service-card:hover {
-  transform: translateY(-4px);
+.service-card:hover:not(.active) {
   box-shadow: var(--shadow-soft);
+  height: 400px;
 }
 
 .service-card:active {
@@ -979,7 +979,7 @@ a {
     width: 80px;
     height: 80px;
   }
-  
+
   .contact-item h3 {
     text-align: center;
   }
