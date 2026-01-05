@@ -960,6 +960,29 @@ a {
   .contact-info p {
     justify-content: center;
   }
+
+  .contact-info {
+    padding: 0;
+    text-align: center;
+  }
+
+  .contact-separator {
+    margin: 0 auto 32px auto;
+  }
+
+  .contact-item {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .contact-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .contact-item h3 {
+    text-align: center;
+  }
 }
 
 /* IG */
