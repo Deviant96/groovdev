@@ -634,6 +634,7 @@ a {
     padding: 0;
     height: unset;
     flex: unset;
+    align-self: center;
   }
 
   .service-card h3 {
