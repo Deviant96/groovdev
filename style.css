@@ -197,6 +197,39 @@ a {
 .nav-actions {
   display: flex;
   gap: 12px;
+  align-items: center;
+}
+
+.lang-toggle {
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 4px;
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lang-option {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 6px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.lang-option:hover {
+  color: white;
+}
+
+.lang-option.active {
+  background: var(--orange);
+  color: white;
+  box-shadow: 0 2px 8px rgba(252, 94, 51, 0.4);
 }
 
 .hamburger {

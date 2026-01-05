@@ -321,3 +321,19 @@ document.getElementById("contactForm")?.addEventListener("submit", e => {
 
   targets.forEach((el) => io.observe(el));
 })();
+
+/* LANGUAGE TOGGLE */
+const langOptions = document.querySelectorAll(".lang-option");
+
+langOptions.forEach(btn => {
+  btn.addEventListener("click", () => {
+    // Remove active class from all
+    langOptions.forEach(b => b.classList.remove("active"));
+    // Add active class to clicked
+    btn.classList.add("active");
+    
+    const lang = btn.dataset.lang;
+    // console.log("Language switched to:", lang);
+    // TODO: Implement translation logic here
+  });
+});
