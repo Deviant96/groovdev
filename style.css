@@ -435,7 +435,7 @@ a {
   flex-direction: row;
   gap: 20px;
   margin-top: 32px;
-  min-height: 430px;
+  min-height: 450px;
 }
 
 .service-card {
@@ -451,7 +451,7 @@ a {
   flex: 1;
   position: relative;
   align-self: flex-start;
-  height: 350px;
+  height: 380px;
 }
 
 .service-card:hover {
@@ -466,7 +466,7 @@ a {
 .service-card.active {
   outline: 2px solid var(--orange);
   background: var(--navy);
-  height: 430px;
+  height: 450px;
 }
 
 .service-card h3 {
@@ -512,13 +512,19 @@ a {
   border-radius: 0 0 var(--radius-md) var(--radius-md);
   padding: 24px 72px;
   box-shadow: var(--shadow-soft);
-  animation: detailIn 360ms var(--ease-out);
+  animation: detailIn 500ms var(--ease-out);
+  transform-origin: top center;
 
   display: flex;
   flex-direction: row;
   column-gap: 24px;
 
   color: #FFFFFF;
+}
+
+.service-detail-inner.closing {
+  animation: detailOut 300ms var(--ease-in-out) forwards;
+  pointer-events: none;
 }
 
 .service-detail-inner > div {
@@ -538,12 +544,23 @@ a {
 
 @keyframes detailIn {
   from {
-    transform: translateY(-8px);
+    transform: translateY(-20px) scale(0.96);
     opacity: 0;
   }
   to {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     opacity: 1;
+  }
+}
+
+@keyframes detailOut {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-20px) scale(0.96);
+    opacity: 0;
   }
 }
 

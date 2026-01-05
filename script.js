@@ -19,7 +19,7 @@ document.querySelectorAll("[data-scroll]").forEach(btn => {
 const services = [
   {
     title: "Website Development",
-    image: "assets/images/service1.jpg",
+    image: "assets/images/service1.png",
     price: "Rp. 1,9 juta,-",
     desc: "We help businesses establish their dream website:",
     features: [
@@ -32,30 +32,21 @@ const services = [
   },
   {
     title: "Website Improvement",
+    image: "assets/images/service2.png",
     price: "Rp. 750 ribu,-",
     desc: "Improve UX, speed, and conversions.",
     features: ["UI/UX refresh", "Fix responsiveness", "CTA optimization"]
   },
   {
     title: "SEO & Performance Optimization",
+    image: "assets/images/service3.png",
     price: "Rp. 1,2 juta,-",
     desc: "Boost your website's visibility and speed.",
     features: ["On-page SEO", "Performance tuning", "Analytics setup"]
   },
   {
-    title: "Content Management System (CMS)",
-    price: "Rp. 2,5 juta,-",
-    desc: "Easily manage your website content with a user-friendly CMS.",
-    features: ["Custom CMS setup", "User training", "Ongoing support"]
-  },
-  {
-    title: "Website Maintenance & Support",
-    price: "Rp. 500 ribu/bulan,-",
-    desc: "Keep your website updated, secure, and running smoothly.",
-    features: ["Regular updates", "Security monitoring", "Backup services"]
-  },
-  {
     title: "Graphic Design & Content",
+    image: "assets/images/service4.png",
     price: "Rp. 1 juta,-",
     desc: "Enhance your website with professional graphics and content.",
     features: ["Custom graphics", "Content creation", "Branding materials"]
@@ -76,8 +67,25 @@ services.forEach((s, i) => {
 
   card.onclick = () => {
     if (openIndex === i) {
-      detail.innerHTML = "";
-      openIndex = null;
+      const inner = detail.querySelector(".service-detail-inner");
+      if (inner) {
+        inner.classList.add("closing");
+        inner.addEventListener(
+          "animationend",
+          () => {
+            if (detail.contains(inner)) {
+              detail.innerHTML = "";
+              openIndex = null;
+              document.querySelectorAll(".service-card").forEach((c) => c.classList.remove("active"));
+            }
+          },
+          { once: true }
+        );
+      } else {
+        detail.innerHTML = "";
+        openIndex = null;
+        document.querySelectorAll(".service-card").forEach((c) => c.classList.remove("active"));
+      }
       return;
     }
 
