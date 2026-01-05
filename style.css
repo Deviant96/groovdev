@@ -564,6 +564,81 @@ a {
   }
 }
 
+@media (max-width: 768px) {
+  .services-grid {
+    flex-direction: column;
+    min-height: fit-content;
+  }
+
+  .service-card {
+    background-color: transparent;
+    border-radius: unset;
+    padding: 0;
+    height: unset;
+    flex: unset;
+  }
+
+  .service-card h3 {
+    margin: 0;
+    position: relative;
+  }
+
+  .service-card h3::after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-right: 3px solid var(--orange);
+    border-bottom: 3px solid var(--orange);
+    transform: rotate(45deg);
+    margin-left: 12px;
+    margin-bottom: 3px;
+    transition: transform var(--dur-fast) var(--ease-out);
+    transform-origin: center;
+  }
+
+  .service-card.active h3::after {
+    transform: rotate(225deg);
+  }
+
+  .service-card.active h3 {
+    color: var(--navy);
+    font-size: 20px;
+  }
+
+  .service-card .service-img {
+    display: none;
+  }
+
+  .service-card:hover {
+    box-shadow: unset;
+  }
+
+  .service-card:active {
+    transform: translateY(-1px) scale(0.99);
+  }
+
+  .service-card.active {
+    outline: unset;
+    background: unset;
+    height: unset;
+  }
+
+  .service-detail {
+    margin-top: 16px;
+    padding: 0;
+  }
+
+  .service-detail-inner {
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .service-detail-features {
+    margin-top: 16px;
+  }
+}
+
 /* CTA */
 .cta {
   background-image: url('./assets/images/cta-bg.webp');
@@ -935,7 +1010,6 @@ a {
   }
 
   .about-cards,
-  .services-grid,
   .contact-grid {
     grid-template-columns: 1fr;
   }
