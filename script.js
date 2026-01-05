@@ -114,6 +114,9 @@ services.forEach((s, i) => {
         </div>
       </div>
     `;
+
+    // Scroll to detail so user notices it
+    detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
 
   grid.appendChild(card);
