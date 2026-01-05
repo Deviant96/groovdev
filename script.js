@@ -62,11 +62,30 @@ const services = [
 
 const grid = document.getElementById("servicesGrid");
 const detail = document.getElementById("serviceDetail");
-let openIndex = null;
+let openIndex = 0;
+
+function getServiceDetailHTML(s) {
+  return `
+      <div class="service-detail-inner">
+        <div class="service-detail-header">
+          <p class="nunito-sans-regular-mono" style="font-size: 18px;">${s.desc}</p>
+          <strong class="text-orange" style="font-size: 20px;display: flex; align-items: center;">
+            <img src="assets/images/price-tag-icon.png" width=24 height=24 alt="" aria-hidden="true" style="width:24px; height:24px; vertical-align: middle; margin-right: 6px;">
+            Mulai dari ${s.price}
+          </strong>
+        </div>
+        <div class="service-detail-features">
+          <ul>${s.features.map(f => `<li>${f}</li>`).join("")}</ul>
+        </div>
+      </div>
+    `;
+}
 
 services.forEach((s, i) => {
   const card = document.createElement("div");
   card.className = "service-card";
+  if (i === 0) card.classList.add("active");
+
   card.innerHTML = `
     <h3>${s.title}</h3>
     ${s.image ? `<img src="${s.image}" alt="${s.title}" class="service-img">` : ""}
@@ -100,20 +119,7 @@ services.forEach((s, i) => {
     card.classList.add("active");
 
     openIndex = i;
-    detail.innerHTML = `
-      <div class="service-detail-inner">
-        <div class="service-detail-header">
-          <p class="nunito-sans-regular-mono" style="font-size: 18px;">${s.desc}</p>
-          <strong class="text-orange" style="font-size: 20px;display: flex; align-items: center;">
-            <img src="assets/images/price-tag-icon.png" width=24 height=24 alt="" aria-hidden="true" style="width:24px; height:24px; vertical-align: middle; margin-right: 6px;">
-            Mulai dari ${s.price}
-          </strong>
-        </div>
-        <div class="service-detail-features">
-          <ul>${s.features.map(f => `<li>${f}</li>`).join("")}</ul>
-        </div>
-      </div>
-    `;
+    detail.innerHTML = getServiceDetailHTML(s);
 
     // Scroll to detail so user notices it
     detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -121,6 +127,10 @@ services.forEach((s, i) => {
 
   grid.appendChild(card);
 });
+
+if (services.length > 0) {
+  detail.innerHTML = getServiceDetailHTML(services[0]);
+}
 
 /* CONTACT FORM */
 document.getElementById("contactForm")?.addEventListener("submit", e => {
