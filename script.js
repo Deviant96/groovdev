@@ -530,7 +530,7 @@ langOptions.forEach(btn => {
       })
       .join("");
 
-    function setActive(index) {
+    function setActive(index, shouldScroll = true) {
       const selected = posts[index];
       if (!selected) return;
 
@@ -539,7 +539,10 @@ langOptions.forEach(btn => {
       activeCard?.classList.add("active");
 
       renderDetail(selected);
-      detail.scrollIntoView({ behavior: "smooth", block: "start" });
+      
+      if (shouldScroll) {
+        detail.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
 
     grid.querySelectorAll(".blog-card").forEach((card) => {
@@ -558,7 +561,7 @@ langOptions.forEach(btn => {
       });
     });
 
-    setActive(0);
+    setActive(0, false);
   }
 
   function loadPost(source) {
