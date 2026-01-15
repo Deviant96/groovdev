@@ -540,10 +540,6 @@ langOptions.forEach(btn => {
 
       renderDetail(selected);
       detail.scrollIntoView({ behavior: "smooth", block: "start" });
-
-      if (window.innerWidth < 769 && activeCard) {
-        activeCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      }
     }
 
     grid.querySelectorAll(".blog-card").forEach((card) => {

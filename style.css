@@ -121,6 +121,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 140px;
+}
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -1384,6 +1389,10 @@ a {
 
 /* MOBILE */
 @media (max-width: 768px) {
+  html {
+    scroll-padding-top: 100px;
+  }
+
   .nav-inner {
     height: 80px;
   }
