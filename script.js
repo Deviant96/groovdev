@@ -347,3 +347,249 @@ langOptions.forEach(btn => {
     // TODO: Implement translation logic here
   });
 });
+
+/* BLOG SECTION */
+(function initBlogSection() {
+  const grid = document.getElementById("blogGrid");
+  const detail = document.getElementById("blogDetail");
+
+  if (!grid || !detail) return;
+
+  const sources = [
+    {
+      file: "blog/launching-groovdev.md",
+      fallbackMeta: {
+        title: "Peluncuran GroovDev 2025",
+        date: "2025-12-15",
+        readTime: "4 min read",
+        tags: ["process", "tech", "team"],
+        excerpt: "Bagaimana kami membangun website cepat dengan sprint pendek dan QA rapi.",
+        cover: "assets/images/portfolio/vivaci-living.png"
+      }
+    },
+    {
+      file: "blog/first-30-days.md",
+      fallbackMeta: {
+        title: "Checklist 30 Hari Pertama",
+        date: "2025-12-10",
+        readTime: "3 min read",
+        tags: ["launch", "ops", "analytics"],
+        excerpt: "Langkah praktis agar website baru langsung mengumpulkan lead.",
+        cover: "assets/images/portfolio/handduk.png"
+      }
+    },
+    {
+      file: "blog/speed-seo-conversion.md",
+      fallbackMeta: {
+        title: "Kecepatan, SEO, dan Konversi",
+        date: "2025-11-25",
+        readTime: "4 min read",
+        tags: ["seo", "performance", "conversion"],
+        excerpt: "Optimasi ringan yang menaikkan trust dan klik CTA di situs UMKM.",
+        cover: "assets/images/portfolio/ibnu-batutah.png"
+      }
+    }
+  ];
+
+  function parseFrontMatter(text) {
+    const trimmed = text.trim();
+    const match = trimmed.match(/^---\s*([\s\S]*?)---\s*([\s\S]*)$/);
+
+    if (!match) {
+      return { meta: {}, body: text };
+    }
+
+    const rawMeta = match[1].split(/\r?\n/);
+    const meta = {};
+
+    rawMeta.forEach((line) => {
+      const [key, ...rest] = line.split(":");
+      if (!key || rest.length === 0) return;
+      const value = rest.join(":").trim();
+
+      if (value.startsWith("[") && value.endsWith("]")) {
+        meta[key.trim()] = value
+          .slice(1, -1)
+          .split(",")
+          .map((v) => v.trim().replace(/^"|"$/g, ""))
+          .filter(Boolean);
+      } else {
+        meta[key.trim()] = value.replace(/^"|"$/g, "");
+      }
+    });
+
+    return { meta, body: match[2].trim() };
+  }
+
+  function markdownToHTML(md = "") {
+    const lines = md.split(/\r?\n/);
+    const html = [];
+    let inList = false;
+
+    const fmt = (text) => text
+      .replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
+    lines.forEach((line) => {
+      const trimmed = line.trim();
+
+      if (!trimmed) {
+        if (inList) return;
+        html.push("");
+        return;
+      }
+
+      const headingMatch = trimmed.match(/^(#{1,3})\s+(.*)$/);
+      if (headingMatch) {
+        if (inList) {
+          html.push("</ul>");
+          inList = false;
+        }
+        const level = headingMatch[1].length;
+        html.push(`<h${level}>${fmt(headingMatch[2])}</h${level}>`);
+        return;
+      }
+
+      const listMatch = trimmed.match(/^[-*]\s+(.*)$/);
+      if (listMatch) {
+        if (!inList) {
+          html.push("<ul>");
+          inList = true;
+        }
+        html.push(`<li>${fmt(listMatch[1])}</li>`);
+        return;
+      }
+
+      if (inList) {
+        html.push("</ul>");
+        inList = false;
+      }
+
+      html.push(`<p>${fmt(trimmed)}</p>`);
+    });
+
+    if (inList) html.push("</ul>");
+
+    return html.filter(Boolean).join("\n");
+  }
+
+  function renderDetail(post) {
+    if (!post) {
+      detail.innerHTML = '<p class="blog-empty">Belum ada artikel.</p>';
+      return;
+    }
+
+    const meta = post.meta || {};
+    const tags = Array.isArray(meta.tags) ? meta.tags : [];
+
+    detail.innerHTML = `
+      <div class="blog-meta">
+        <span>${meta.date || ""}</span>
+        ${meta.readTime ? `<span>• ${meta.readTime}</span>` : ""}
+      </div>
+      <h3>${meta.title || "Artikel"}</h3>
+      <div class="blog-tags">${tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>
+      <div class="blog-body">${markdownToHTML(post.body || post.content || "")}</div>
+      <div class="blog-cta-inline">
+        <span>Butuh bantuan bangun situs?</span>
+        <button type="button" data-scroll="#contact">Hubungi GroovDev</button>
+      </div>
+    `;
+
+    detail.querySelector("[data-scroll]")?.addEventListener("click", () => {
+      document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
+  function renderGrid(posts) {
+    grid.innerHTML = posts
+      .map((post, idx) => {
+        const meta = post.meta || {};
+        const tags = Array.isArray(meta.tags) ? meta.tags : [];
+        const coverStyle = meta.cover
+          ? `style="background-image: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.3)), url('${meta.cover}');"`
+          : "";
+
+        return `
+          <article class="blog-card ${idx === 0 ? "active" : ""}" data-idx="${idx}" tabindex="0">
+            <div class="blog-cover" ${coverStyle}></div>
+            <div class="blog-card-body">
+              <div class="blog-meta">
+                <span>${meta.date || ""}</span>
+                ${meta.readTime ? `<span>• ${meta.readTime}</span>` : ""}
+              </div>
+              <h3>${meta.title || "Artikel"}</h3>
+              <p class="blog-excerpt">${meta.excerpt || "Baca insight terbaru dari GroovDev."}</p>
+              <div class="blog-tags">${tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>
+              <button class="blog-read" type="button" data-idx="${idx}">Baca artikel</button>
+            </div>
+          </article>
+        `;
+      })
+      .join("");
+
+    function setActive(index) {
+      const selected = posts[index];
+      if (!selected) return;
+
+      grid.querySelectorAll(".blog-card").forEach((card) => card.classList.remove("active"));
+      const activeCard = grid.querySelector(`[data-idx="${index}"]`);
+      activeCard?.classList.add("active");
+
+      renderDetail(selected);
+      detail.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      if (window.innerWidth < 769 && activeCard) {
+        activeCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    }
+
+    grid.querySelectorAll(".blog-card").forEach((card) => {
+      const idx = Number(card.dataset.idx);
+
+      card.addEventListener("click", () => setActive(idx));
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          setActive(idx);
+        }
+      });
+      card.querySelector(".blog-read")?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setActive(idx);
+      });
+    });
+
+    setActive(0);
+  }
+
+  function loadPost(source) {
+    return fetch(source.file)
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load blog");
+        return res.text();
+      })
+      .then((text) => {
+        const parsed = parseFrontMatter(text);
+        return {
+          ...source,
+          meta: { ...source.fallbackMeta, ...(parsed.meta || {}) },
+          body: parsed.body
+        };
+      })
+      .catch(() => ({
+        ...source,
+        meta: source.fallbackMeta,
+        body: source.fallbackBody || "Konten belum tersedia."
+      }));
+  }
+
+  Promise.all(sources.map(loadPost))
+    .then(renderGrid)
+    .catch(() => {
+      grid.innerHTML = "";
+      detail.innerHTML = '<p class="blog-empty">Tidak dapat memuat artikel saat ini.</p>';
+    });
+})();
