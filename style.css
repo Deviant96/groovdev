@@ -1011,22 +1011,55 @@ a {
   text-decoration: underline;
 }
 
-.ig-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+/* IG CAROUSEL */
+.ig-carousel {
+  position: relative;
+  margin-top: 28px;
+}
+
+.ig-slides {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 10px 18px 18px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.ig-slides::-webkit-scrollbar {
+  display: none;
 }
 
 .ig-item {
+  flex: 0 0 calc(25% - 12px);
+  min-width: 220px;
+  scroll-snap-align: center;
   background: white;
   aspect-ratio: 1 / 1;
   display: grid;
   place-items: center;
   border-radius: var(--radius-sm);
-  
   position: relative;
   overflow: hidden;
-  transition: transform var(--dur-fast) var(--ease-out);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.18);
+  transition:
+    transform var(--dur-mid) var(--ease-out),
+    box-shadow var(--dur-mid) var(--ease-out);
+}
+
+.ig-slides.dragging {
+  scroll-snap-type: none;
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
+.ig-slides.dragging .ig-item {
+  pointer-events: none;
 }
 
 .ig-item::after {
@@ -1043,20 +1076,114 @@ a {
 }
 
 .ig-item:hover {
-  transform: scale(1.03);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: var(--shadow-lift);
 }
 
 .ig-item:hover::after {
   opacity: 1;
 }
 
-.ig-item > img {  
+.ig-item > img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform var(--dur-slow) var(--ease-out);
 }
 
 .ig-item:hover > img {
   transform: scale(1.1);
+}
+
+/* IG Carousel Dots */
+.ig-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding-top: 14px;
+}
+
+.ig-dots .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  border: 1px solid rgba(47, 51, 112, 0.45);
+  background: rgba(47, 51, 112, 0.2);
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+
+.ig-dots .dot.active {
+  background: rgba(47, 51, 112, 0.85);
+  border-color: var(--navy);
+}
+
+/* IG Carousel Arrows */
+.ig-arrow {
+  position: absolute;
+  top: 46%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(47, 51, 112, 0.55);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--navy);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+  font-weight: bold;
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+  z-index: 10;
+}
+
+.ig-arrow:hover {
+  background: white;
+  box-shadow: var(--shadow-soft);
+}
+
+.ig-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.ig-arrow.prev {
+  left: 6px;
+}
+
+.ig-arrow.next {
+  right: 6px;
+}
+
+@media (min-width: 900px) {
+  .ig-arrow {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .ig-slides {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  .ig-item {
+    flex-basis: 70%;
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 769px) {
+  .ig-item {
+    flex-basis: calc(33.33% - 12px);
+    min-width: 220px;
+  }
 }
 
 /* BLOG */
