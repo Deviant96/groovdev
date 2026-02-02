@@ -764,10 +764,12 @@ langOptions.forEach(btn => {
       }
     });
 
-    // Scroll to active item
+    // Scroll within the carousel container only (avoid page auto-scroll)
     const activeItem = slideNodes[index];
     if (activeItem) {
-      activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      const itemLeft = activeItem.offsetLeft;
+      const targetLeft = itemLeft - (slidesEl.clientWidth - activeItem.clientWidth) / 2;
+      slidesEl.scrollTo({ left: targetLeft, behavior: 'smooth' });
     }
 
     // Update dots
