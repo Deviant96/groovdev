@@ -164,6 +164,7 @@ a {
   color: white;
   font-size: 24px;
   letter-spacing: 1px;
+  font-family: Horizon, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .nav-menu {
