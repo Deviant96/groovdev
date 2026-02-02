@@ -245,7 +245,7 @@ a {
 /* HERO (match mockup 50/50) */
 .hero {
   background: var(--navy);
-  /* padding: var(--pad-desktop) 0; */
+  padding: 0 0 var(--pad-desktop);
 }
 
 .hero-inner {
