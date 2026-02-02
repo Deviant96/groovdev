@@ -715,6 +715,7 @@ langOptions.forEach(btn => {
 })();
 
 /* IG CAROUSEL */
+/* INSTAGRAM CAROUSEL - Horizontal Single-Row Scrolling */
 (function initIgCarousel() {
   const slidesEl = document.getElementById("igSlides");
   const dotsEl = document.getElementById("igDots");
@@ -724,199 +725,192 @@ langOptions.forEach(btn => {
 
   const prevBtn = carousel.querySelector(".ig-arrow.prev");
   const nextBtn = carousel.querySelector(".ig-arrow.next");
-
   const slideNodes = Array.from(slidesEl.querySelectorAll(".ig-item"));
-  const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
-  const autoplayDelay = 3000;
+  
+  const AUTO_PLAY_DELAY = 3500;
+  const totalItems = slideNodes.length;
+  
+  let currentIndex = 0;
+  let autoPlayInterval = null;
+  let isAutoPlaying = true;
+  let touchStartX = 0;
+  let touchEndX = 0;
 
-  // Render dots
-  dotsEl.innerHTML = slideNodes
-    .map((_, i) => `<button class="dot" type="button" aria-label="Go to post ${i + 1}" data-dot="${i}"></button>`)
-    .join("");
+  // Render dots based on items (one dot per item)
+  dotsEl.innerHTML = Array.from({ length: totalItems }, (_, i) => 
+    `<button class="dot" type="button" aria-label="Go to item ${i + 1}" data-index="${i}">
+      <span class="dot-progress"></span>
+    </button>`
+  ).join("");
 
   const dotNodes = Array.from(dotsEl.querySelectorAll(".dot"));
 
-  function getClosestIndex() {
-    const scrollLeft = slidesEl.scrollLeft;
-    const center = scrollLeft + slidesEl.clientWidth / 2;
-
-    let bestIdx = 0;
-    let bestDist = Infinity;
-
+  function setActiveItem(index) {
+    index = Math.max(0, Math.min(totalItems - 1, index));
+    
+    // Update slides visibility and animation
     slideNodes.forEach((node, idx) => {
-      const nodeCenter = node.offsetLeft + node.clientWidth / 2;
-      const dist = Math.abs(nodeCenter - center);
-      if (dist < bestDist) {
-        bestDist = dist;
-        bestIdx = idx;
+      node.classList.remove('active', 'prev', 'next');
+      
+      if (idx === index) {
+        node.classList.add('active');
+        node.style.transitionDelay = '0ms';
+      } else if (idx < index) {
+        node.classList.add('prev');
+        node.style.transitionDelay = '0ms';
+      } else {
+        node.classList.add('next');
+        node.style.transitionDelay = '0ms';
       }
     });
 
-    return bestIdx;
+    // Scroll to active item
+    const activeItem = slideNodes[index];
+    if (activeItem) {
+      activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
+    // Update dots
+    dotNodes.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+      const progress = dot.querySelector('.dot-progress');
+      if (i === index && isAutoPlaying) {
+        progress.style.animation = `dotProgress ${AUTO_PLAY_DELAY}ms linear`;
+      } else {
+        progress.style.animation = 'none';
+      }
+    });
+
+    // Update arrows (always available in continuous carousel)
+    if (prevBtn) prevBtn.disabled = false;
+    if (nextBtn) nextBtn.disabled = false;
+    
+    currentIndex = index;
   }
 
-  function setActiveDot(idx) {
-    dotNodes.forEach((d, i) => d.classList.toggle("active", i === idx));
+  function goToItem(index) {
+    stopAutoPlay();
+    setActiveItem(index);
+    startAutoPlay();
   }
 
-  function updateArrowStates() {
-    if (prevBtn) prevBtn.disabled = currentIndex === 0;
-    if (nextBtn) nextBtn.disabled = currentIndex === slideNodes.length - 1;
+  function nextItem() {
+    const next = (currentIndex + 1) % totalItems;
+    setActiveItem(next);
   }
 
-  function scrollToIndex(idx, fromAutoplay = false) {
-    idx = clamp(idx, 0, slideNodes.length - 1);
-    const node = slideNodes[idx];
-    if (!node) return;
-
-    const targetLeft = node.offsetLeft - (slidesEl.clientWidth - node.clientWidth) / 2;
-    slidesEl.scrollTo({ left: targetLeft, behavior: "smooth" });
-    setActiveDot(idx);
-    currentIndex = idx;
-    updateArrowStates();
-    if (!fromAutoplay) userInteracting = true;
+  function prevItem() {
+    const prev = (currentIndex - 1 + totalItems) % totalItems;
+    setActiveItem(prev);
   }
 
-  // Dots click
+  // Auto-play functionality
+  function startAutoPlay() {
+    if (!isAutoPlaying) return;
+    stopAutoPlay();
+    autoPlayInterval = setInterval(nextItem, AUTO_PLAY_DELAY);
+  }
+
+  function stopAutoPlay() {
+    if (autoPlayInterval) {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = null;
+    }
+  }
+
+  function pauseAutoPlay() {
+    isAutoPlaying = false;
+    stopAutoPlay();
+  }
+
+  function resumeAutoPlay() {
+    isAutoPlaying = true;
+    startAutoPlay();
+  }
+
+  // Event listeners - Arrows
+  prevBtn?.addEventListener("click", () => {
+    prevItem();
+    stopAutoPlay();
+    setTimeout(startAutoPlay, 1000);
+  });
+
+  nextBtn?.addEventListener("click", () => {
+    nextItem();
+    stopAutoPlay();
+    setTimeout(startAutoPlay, 1000);
+  });
+
+  // Event listeners - Dots
   dotNodes.forEach((dot) => {
     dot.addEventListener("click", () => {
-      const idx = Number(dot.dataset.dot);
-      scrollToIndex(idx);
-      scheduleAutoplay();
+      const index = Number(dot.dataset.index);
+      goToItem(index);
     });
   });
 
-  // Arrows
-  let currentIndex = 0;
-  let autoplayTimer = null;
-  let scrollIdleTimer = null;
-  let isDragging = false;
-  let startX = 0;
-  let startScrollLeft = 0;
-  let userInteracting = false;
-
-  prevBtn?.addEventListener("click", () => {
-    scrollToIndex(currentIndex - 1);
-    scheduleAutoplay();
-  });
-  nextBtn?.addEventListener("click", () => {
-    scrollToIndex(currentIndex + 1);
-    scheduleAutoplay();
-  });
-
-  // Update dot on scroll (swipe/drag)
-  let raf = null;
-  slidesEl.addEventListener("scroll", () => {
-    if (raf) cancelAnimationFrame(raf);
-    if (autoplayTimer) stopAutoplay();
-    if (scrollIdleTimer) clearTimeout(scrollIdleTimer);
-
-    raf = requestAnimationFrame(() => {
-      const idx = getClosestIndex();
-      currentIndex = idx;
-      setActiveDot(idx);
-      updateArrowStates();
-    });
-
-    scrollIdleTimer = setTimeout(() => {
-      userInteracting = false;
-      scheduleAutoplay();
-    }, 800);
-  });
-
-  // Keyboard support
+  // Event listeners - Keyboard
   carousel.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") {
-      scrollToIndex(currentIndex - 1);
-      scheduleAutoplay();
+      prevItem();
+      stopAutoPlay();
+      setTimeout(startAutoPlay, 1000);
     }
     if (e.key === "ArrowRight") {
-      scrollToIndex(currentIndex + 1);
-      scheduleAutoplay();
+      nextItem();
+      stopAutoPlay();
+      setTimeout(startAutoPlay, 1000);
     }
   });
 
-  function stopAutoplay() {
-    if (autoplayTimer) clearTimeout(autoplayTimer);
-    autoplayTimer = null;
-  }
+  // Touch/Swipe support
+  slidesEl.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    pauseAutoPlay();
+  }, { passive: true });
 
-  function startAutoplay() {
-    stopAutoplay();
-    autoplayTimer = setTimeout(() => {
-      if (isDragging || userInteracting) {
-        startAutoplay();
-        return;
+  slidesEl.addEventListener('touchmove', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  slidesEl.addEventListener('touchend', () => {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        nextItem();
+      } else {
+        prevItem();
       }
-      const nextIdx = (currentIndex + 1) % slideNodes.length;
-      scrollToIndex(nextIdx, true);
-      startAutoplay();
-    }, autoplayDelay);
-  }
-
-  function scheduleAutoplay() {
-    stopAutoplay();
-    startAutoplay();
-  }
-
-  // Drag to scroll
-  function onDragStart(clientX) {
-    isDragging = true;
-    slidesEl.classList.add("dragging");
-    startX = clientX;
-    startScrollLeft = slidesEl.scrollLeft;
-    stopAutoplay();
-  }
-
-  function onDragMove(clientX) {
-    if (!isDragging) return;
-    const walk = (startX - clientX) * 1.5;
-    slidesEl.scrollLeft = startScrollLeft + walk;
-  }
-
-  function onDragEnd() {
-    if (!isDragging) return;
-    isDragging = false;
-    slidesEl.classList.remove("dragging");
-    userInteracting = false;
-    scheduleAutoplay();
-  }
-
-  slidesEl.addEventListener("mousedown", (e) => {
-    e.preventDefault();
-    userInteracting = true;
-    onDragStart(e.pageX);
-  });
-  slidesEl.addEventListener("mousemove", (e) => {
-    e.preventDefault();
-    onDragMove(e.pageX);
-  });
-  window.addEventListener("mouseup", () => onDragEnd());
-
-  slidesEl.addEventListener("touchstart", (e) => {
-    userInteracting = true;
-    const touch = e.touches[0];
-    onDragStart(touch.pageX);
+    }
+    
+    setTimeout(resumeAutoPlay, 1000);
   }, { passive: true });
-  slidesEl.addEventListener("touchmove", (e) => {
-    const touch = e.touches[0];
-    onDragMove(touch.pageX);
-  }, { passive: true });
-  slidesEl.addEventListener("touchend", () => onDragEnd());
 
-  carousel.addEventListener("mouseenter", () => {
-    userInteracting = true;
-    stopAutoplay();
+  // Pause on hover
+  carousel.addEventListener('mouseenter', pauseAutoPlay);
+  carousel.addEventListener('mouseleave', resumeAutoPlay);
+
+  // Pause on visibility change
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopAutoPlay();
+    } else {
+      startAutoPlay();
+    }
   });
 
-  carousel.addEventListener("mouseleave", () => {
-    userInteracting = false;
-    scheduleAutoplay();
-  });
+  // Initialize
+  setActiveItem(0);
+  startAutoPlay();
 
-  // Init
-  setActiveDot(0);
-  updateArrowStates();
-  setTimeout(() => scrollToIndex(0), 50);
-  startAutoplay();
+  // Handle window resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      setActiveItem(currentIndex);
+    }, 150);
+  });
 })();
