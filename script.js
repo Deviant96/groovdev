@@ -140,7 +140,7 @@ document.getElementById("contactForm")?.addEventListener("submit", e => {
 });
 
 
-/* PORTFOLIO SLIDER (center + peek + dots + arrows + swipe) */
+/* PORTFOLIO SLIDER - Modern Revamped Version */
 (function initPortfolioSlider() {
   const slidesEl = document.getElementById("slides");
   const dotsEl = document.getElementById("sliderDots");
@@ -156,120 +156,241 @@ document.getElementById("contactForm")?.addEventListener("submit", e => {
       title: "Vivaci Living - Company Profile",
       link: "https://vivaci-living.com/",
       image: "assets/images/portfolio/vivaci-living.png",
-      desc: "Website company profile untuk Vivaci Living, menampilkan layanan dan portofolio mereka."
+      desc: "Website company profile untuk Vivaci Living, menampilkan layanan dan portofolio mereka.",
+      category: "Company Profile"
     },
     {
       title: "Yayasan Masjid Agung Ibnu Batutah",
       link: "https://masjidibnubatutah.id/",
       image: "assets/images/portfolio/ibnu-batutah.png",
-      desc: "Website profil yayasan dengan struktur konten rapi, responsif, dan mudah dikelola."
+      desc: "Website profil yayasan dengan struktur konten rapi, responsif, dan mudah dikelola.",
+      category: "Non-Profit"
     },
     {
       title: "Handduk.co - E-commerce",
       link: "https://handduk.co/",
       image: "assets/images/portfolio/handduk.png",
-      desc: "Toko online untuk produk handuk berkualitas dengan desain menarik dan navigasi mudah."
+      desc: "Toko online untuk produk handuk berkualitas dengan desain menarik dan navigasi mudah.",
+      category: "E-Commerce"
     }
   ];
 
-  // Render slides
+  let currentIndex = 0;
+  let autoPlayInterval = null;
+  let isAutoPlaying = true;
+  const AUTO_PLAY_DELAY = 4500;
+
+  // Render slides with enhanced markup
   slidesEl.innerHTML = items
-    .map(
-      (it, idx) => {
-        const thumbStyle = it.image 
-          ? `background-image: url('${it.image}'); background-size: cover; background-position: center;` 
-          : '';
-        return `
-      <article class="slide" role="listitem" data-index="${idx}">
-        <h3>${it.title}</h3>
-        <div class="thumb" aria-hidden="true" style="${thumbStyle}"></div>
-        <a href="${it.link}" target="_blank" rel="noopener">visit site</a>
-        <p>${it.desc}</p>
-      </article>
-    `})
+    .map((item, idx) => {
+      const thumbStyle = item.image 
+        ? `background-image: url('${item.image}');` 
+        : '';
+      return `
+        <article class="slide" role="listitem" data-index="${idx}">
+          <div class="slide-inner">
+            <div class="slide-category">${item.category}</div>
+            <div class="slide-image" style="${thumbStyle}">
+              <div class="slide-overlay"></div>
+            </div>
+            <div class="slide-content">
+              <h3 class="slide-title">${item.title}</h3>
+              <p class="slide-desc">${item.desc}</p>
+              <a href="${item.link}" class="slide-link" target="_blank" rel="noopener">
+                <span>Visit Site</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      `;
+    })
     .join("");
 
-  // Render dots
+  // Render dots with progress indicators
   dotsEl.innerHTML = items
-    .map((_, i) => `<button class="dot" type="button" aria-label="Go to slide ${i + 1}" data-dot="${i}"></button>`)
+    .map((_, i) => `
+      <button class="dot" type="button" aria-label="Go to slide ${i + 1}" data-dot="${i}">
+        <span class="dot-progress"></span>
+      </button>
+    `)
     .join("");
 
   const slideNodes = Array.from(slidesEl.querySelectorAll(".slide"));
   const dotNodes = Array.from(dotsEl.querySelectorAll(".dot"));
 
+  // Utility functions
   const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
-
-  function getClosestIndex() {
-    // pilih slide dengan jarak offsetLeft paling dekat terhadap scrollLeft + center area
-    const scrollLeft = slidesEl.scrollLeft;
-    const center = scrollLeft + slidesEl.clientWidth / 2;
-
-    let bestIdx = 0;
-    let bestDist = Infinity;
-
-    slideNodes.forEach((node, idx) => {
-      const nodeCenter = node.offsetLeft + node.clientWidth / 2;
-      const dist = Math.abs(nodeCenter - center);
-      if (dist < bestDist) {
-        bestDist = dist;
-        bestIdx = idx;
+  
+  function setActiveSlide(idx) {
+    idx = clamp(idx, 0, items.length - 1);
+    
+    // Update slides
+    slideNodes.forEach((node, i) => {
+      node.classList.remove('active', 'prev', 'next');
+      if (i === idx) {
+        node.classList.add('active');
+      } else if (i === idx - 1 || (idx === 0 && i === items.length - 1)) {
+        node.classList.add('prev');
+      } else if (i === idx + 1 || (idx === items.length - 1 && i === 0)) {
+        node.classList.add('next');
       }
     });
 
-    return bestIdx;
-  }
+    // Update dots
+    dotNodes.forEach((dot, i) => {
+      dot.classList.toggle('active', i === idx);
+      const progress = dot.querySelector('.dot-progress');
+      if (i === idx && isAutoPlaying) {
+        progress.style.animation = `dotProgress ${AUTO_PLAY_DELAY}ms linear`;
+      } else {
+        progress.style.animation = 'none';
+      }
+    });
 
-  function setActiveDot(idx) {
-    dotNodes.forEach((d, i) => d.classList.toggle("active", i === idx));
-  }
-
-  function scrollToIndex(idx) {
-    idx = clamp(idx, 0, slideNodes.length - 1);
-    const node = slideNodes[idx];
-    if (!node) return;
-
-    // scroll so that slide is centered (works well with scroll-snap)
-    const targetLeft = node.offsetLeft - (slidesEl.clientWidth - node.clientWidth) / 2;
-    slidesEl.scrollTo({ left: targetLeft, behavior: "smooth" });
-    setActiveDot(idx);
+    // Update transform
+    const offset = -idx * 100;
+    slidesEl.style.transform = `translateX(${offset}%)`;
+    
     currentIndex = idx;
   }
 
-  // Dots click
+  function goToSlide(idx) {
+    stopAutoPlay();
+    setActiveSlide(idx);
+    startAutoPlay();
+  }
+
+  function nextSlide() {
+    const nextIdx = (currentIndex + 1) % items.length;
+    setActiveSlide(nextIdx);
+  }
+
+  function prevSlide() {
+    const prevIdx = (currentIndex - 1 + items.length) % items.length;
+    setActiveSlide(prevIdx);
+  }
+
+  // Auto-play functionality
+  function startAutoPlay() {
+    if (!isAutoPlaying) return;
+    stopAutoPlay();
+    autoPlayInterval = setInterval(nextSlide, AUTO_PLAY_DELAY);
+  }
+
+  function stopAutoPlay() {
+    if (autoPlayInterval) {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = null;
+    }
+  }
+
+  function pauseAutoPlay() {
+    isAutoPlaying = false;
+    stopAutoPlay();
+  }
+
+  function resumeAutoPlay() {
+    isAutoPlaying = true;
+    startAutoPlay();
+  }
+
+  // Event listeners - Arrows
+  prevBtn?.addEventListener("click", () => {
+    prevSlide();
+    stopAutoPlay();
+    setTimeout(startAutoPlay, 1000);
+  });
+
+  nextBtn?.addEventListener("click", () => {
+    nextSlide();
+    stopAutoPlay();
+    setTimeout(startAutoPlay, 1000);
+  });
+
+  // Event listeners - Dots
   dotNodes.forEach((dot) => {
     dot.addEventListener("click", () => {
       const idx = Number(dot.dataset.dot);
-      scrollToIndex(idx);
+      goToSlide(idx);
     });
   });
 
-  // Arrows
-  let currentIndex = 0;
-
-  prevBtn?.addEventListener("click", () => scrollToIndex(currentIndex - 1));
-  nextBtn?.addEventListener("click", () => scrollToIndex(currentIndex + 1));
-
-  // Update dot on scroll (swipe)
-  let raf = null;
-  slidesEl.addEventListener("scroll", () => {
-    if (raf) cancelAnimationFrame(raf);
-    raf = requestAnimationFrame(() => {
-      const idx = getClosestIndex();
-      currentIndex = idx;
-      setActiveDot(idx);
-    });
-  });
-
-  // Keyboard support (optional nice)
+  // Event listeners - Keyboard
   sliderRoot.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") scrollToIndex(currentIndex - 1);
-    if (e.key === "ArrowRight") scrollToIndex(currentIndex + 1);
+    if (e.key === "ArrowLeft") {
+      prevSlide();
+      stopAutoPlay();
+      setTimeout(startAutoPlay, 1000);
+    }
+    if (e.key === "ArrowRight") {
+      nextSlide();
+      stopAutoPlay();
+      setTimeout(startAutoPlay, 1000);
+    }
   });
 
-  // Init
-  setActiveDot(0);
-  // sedikit delay biar layout settle sebelum snap
-  setTimeout(() => scrollToIndex(0), 50);
+  // Touch/Swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let isSwiping = false;
+
+  slidesEl.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    isSwiping = true;
+    pauseAutoPlay();
+  }, { passive: true });
+
+  slidesEl.addEventListener('touchmove', (e) => {
+    if (!isSwiping) return;
+    touchEndX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  slidesEl.addEventListener('touchend', () => {
+    if (!isSwiping) return;
+    isSwiping = false;
+    
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+    
+    setTimeout(resumeAutoPlay, 1000);
+  }, { passive: true });
+
+  // Pause on hover
+  sliderRoot.addEventListener('mouseenter', pauseAutoPlay);
+  sliderRoot.addEventListener('mouseleave', resumeAutoPlay);
+
+  // Pause on visibility change
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopAutoPlay();
+    } else {
+      startAutoPlay();
+    }
+  });
+
+  // Initialize
+  setActiveSlide(0);
+  startAutoPlay();
+
+  // Handle window resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      setActiveSlide(currentIndex);
+    }, 150);
+  });
 })();
 
 
