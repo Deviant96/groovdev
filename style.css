@@ -274,11 +274,6 @@ a {
     box-shadow var(--dur-slow) var(--ease-out);
 }
 
-.hero-visual:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-soft);
-}
-
 /* abstract image sits inside with rounded corners */
 .abstract-placeholder {
   width: 100%;
