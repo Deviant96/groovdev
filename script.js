@@ -476,6 +476,19 @@ langOptions.forEach(btn => {
 
   if (!grid || !detail) return;
 
+  const modal = document.createElement("div");
+  modal.className = "blog-modal";
+  modal.setAttribute("aria-hidden", "true");
+  modal.innerHTML = `
+    <div class="blog-modal__backdrop" data-close></div>
+    <div class="blog-modal__panel" role="dialog" aria-modal="true" aria-label="Artikel blog">
+      <button class="blog-modal__close" type="button" aria-label="Tutup artikel">×</button>
+    </div>
+  `;
+  const modalPanel = modal.querySelector(".blog-modal__panel");
+  modalPanel?.appendChild(detail);
+  document.body.appendChild(modal);
+
   const sources = [
     {
       file: "blog/launching-groovdev.md",
@@ -624,6 +637,19 @@ langOptions.forEach(btn => {
     });
   }
 
+  function openModal() {
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+    modal.querySelector(".blog-modal__close")?.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+  }
+
   function renderGrid(posts) {
     grid.innerHTML = posts
       .map((post, idx) => {
@@ -660,10 +686,7 @@ langOptions.forEach(btn => {
       activeCard?.classList.add("active");
 
       renderDetail(selected);
-      
-      if (shouldScroll) {
-        detail.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      if (shouldScroll) openModal();
     }
 
     grid.querySelectorAll(".blog-card").forEach((card) => {
@@ -712,6 +735,18 @@ langOptions.forEach(btn => {
       grid.innerHTML = "";
       detail.innerHTML = '<p class="blog-empty">Tidak dapat memuat artikel saat ini.</p>';
     });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target?.matches("[data-close], .blog-modal__close")) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("is-open")) {
+      closeModal();
+    }
+  });
 })();
 
 /* IG CAROUSEL */
