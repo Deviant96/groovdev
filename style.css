@@ -1005,6 +1005,48 @@ a {
   }
 }
 
+@media (max-width: 480px) {
+  .contact-info h2 {
+    text-align: left;
+  }
+
+  .contact-info p {
+    font-size: 14px;
+  }
+
+  .contact-intro {
+    text-align: left;
+  }
+
+  .contact-separator {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .contact-item {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .contact-item h3 {
+    text-align: left;
+  }
+
+  .contact-info .contact-consultation {
+    text-align: left;
+  }
+
+  .contact-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .contact-icon img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
 /* IG */
 .ig-link {
   display: block;
