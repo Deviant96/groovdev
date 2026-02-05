@@ -1927,6 +1927,7 @@ body.modal-open {
 .slide-content {
   padding: 32px;
   background: white;
+  text-align: center;
 }
 
 .slide-title {
