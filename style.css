@@ -752,27 +752,26 @@ a {
 .btn-cta {
   background: var(--orange);
   color: white;
-  font-weight: 700;
-  border: 2px solid white;
-  padding: 12px 32px;
+  
+  border: none;
+  padding: 18px 32px;
   border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 1px 4px 8px 2px rgba(0, 0, 0, 0.15);
-  letter-spacing: 0.8px;
   
   transition:
-    transform var(--dur-fast) var(--ease-out),
     box-shadow var(--dur-fast) var(--ease-out),
     background var(--dur-fast) var(--ease-out);
 }
 
 .btn-cta:hover {
-  transform: translateY(-2px);
-  /* box-shadow: 0 10px 22px rgba(252, 94, 51, 0.45); */
+  box-shadow: 0 10px 22px rgba(252, 94, 51, 0.45);
 }
 
 .btn-cta:active {
-  transform: translateY(0);
   box-shadow: 0 6px 14px rgba(252, 94, 51, 0.35);
 }
 
@@ -973,7 +972,6 @@ a {
 
 .btn-submit:hover {
   background: var(--orange);
-  transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(252, 94, 51, 0.3);
 }
 
@@ -1950,21 +1948,14 @@ body.modal-open {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 24px;
-  background: linear-gradient(135deg, var(--navy), #3d4294);
-  color: white;
-  text-decoration: none;
+  text-decoration: underline;
   border-radius: 8px;
   font-weight: 600;
   font-size: 14px;
   transition: all 0.3s var(--ease-out);
-  box-shadow: 0 4px 12px rgba(47, 51, 112, 0.2);
 }
 
 .slide-link:hover {
-  transform: translateX(4px);
-  box-shadow: 0 6px 20px rgba(47, 51, 112, 0.3);
-  background: linear-gradient(135deg, #3d4294, var(--navy));
 }
 
 .slide-link svg {
@@ -1973,6 +1964,22 @@ body.modal-open {
 
 .slide-link:hover svg {
   transform: translateX(4px);
+}
+
+@media screen and (max-width: 800px) {
+  .slide-link {
+    display: inline-flex;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--navy), #3d4294);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s var(--ease-out);
+    box-shadow: 0 4px 12px rgba(47, 51, 112, 0.2);
+  }
 }
 
 /* Dots with Progress Indicators */
