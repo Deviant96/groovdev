@@ -1676,7 +1676,7 @@ body.modal-open {
 
 /* FOOTER */
 .footer {
-  background: white;
+  background: var(--gray-light);
   padding: 60px 60px 0;
 }
 
@@ -1698,10 +1698,10 @@ body.modal-open {
 
 .footer .social-media {
   display: flex;
-  gap: 120px;
+  gap: 40px;
   justify-content: center;
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .footer .social-media a {
