@@ -69,10 +69,6 @@ function getServiceDetailHTML(s) {
       <div class="service-detail-inner">
         <div class="service-detail-header">
           <p class="nunito-sans-regular-mono" style="font-size: 18px;">${s.desc}</p>
-          <strong class="text-orange" style="font-size: 20px;display: flex; align-items: center;">
-            <img src="assets/images/price-tag-icon.png" width=24 height=24 alt="" aria-hidden="true" style="width:24px; height:24px; vertical-align: middle; margin-right: 6px;">
-            Mulai dari ${s.price}
-          </strong>
         </div>
         <div class="service-detail-features">
           <ul>${s.features.map(f => `<li>${f}</li>`).join("")}</ul>
