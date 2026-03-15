@@ -744,9 +744,10 @@ a {
 }
 
 .cta-content h3 {
-  margin: 0 0 12px 0;
+  margin: -24px 0 12px 0;
   font-size: 28px;
   color: var(--navy);
+  line-height: 1.1;
 }
 
 .btn-cta {
@@ -754,7 +755,8 @@ a {
   color: white;
   
   border: none;
-  padding: 18px 32px;
+  padding: 14px 32px;
+  margin-top: 16px;
   border-radius: var(--radius-sm);
   font-size: 16px;
   font-weight: 800;
