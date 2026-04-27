@@ -15,6 +15,7 @@
 
       <nav class="nav-menu" id="navMenu">
         <a href="#about" data-i18n="nav_about">Tentang</a>
+        <a href="#services" data-i18n="nav_services">Layanan</a>
         <a href="#portfolio" data-i18n="nav_portfolio">Portofolio</a>
         <a href="#blog" data-i18n="nav_blog">Blog</a>
         <a href="#contact" data-i18n="nav_contact">Kontak</a>
@@ -68,7 +69,7 @@
         </p>
 
         <h3 class="" data-i18n="about_sub2" style="margin-top: 20px;">Kenapa memilih Groovdev</h3>
-        <p>
+        <p data-i18n="about_desc2">
           Di GroovDev kami berkomitmen memberikan pelayanan menyeluruh untuk solusi digital business anda. Tim kami yang kompeten dan berpengalaman dibidangnya dapat membantu anda dengan cepat dengan harga yang terjangkau.
         </p>
       </div>
@@ -77,8 +78,8 @@
         <div class="about-card">
           <span class="icon"><img src="./assets/images/Berpengalaman_icon.svg" alt="" /></span>
           <div class="about-card-text">
-            <h4>Berpengalaman</h4>
-            <p>
+            <h4 data-i18n="about_card1_title">Berpengalaman</h4>
+            <p data-i18n="about_card1_desc">
               Kami siap membantu anda dengan pengalaman kami membangun website untuk berbagai jenis bisnis, UMKM, lembaga yayasan, maupun kebutuhan untuk personal branding anda.
             </p>
           </div>
@@ -87,8 +88,8 @@
         <div class="about-card">
           <span class="icon"><img src="./assets/images/Terpadu_icon.svg" alt="" /></span>
           <div class="about-card-text">
-            <h4>Terpadu</h4>
-            <p>
+            <h4 data-i18n="about_card2_title">Terpadu</h4>
+            <p data-i18n="about_card2_desc">
               Kami menawarkan berbagai layanan seputar kebutuhan digital. Semua proyek dirancang secara profesional dan anda akan dipandu dari awal hingga siap online dan berkembang.
             </p>
           </div>
@@ -97,8 +98,8 @@
         <div class="about-card">
           <span class="icon"><img src="./assets/images/Terjangkau_icon.svg" alt="" /></span>
           <div class="about-card-text">
-            <h4>Terjangkau</h4>
-            <p>
+            <h4 data-i18n="about_card3_title">Terjangkau</h4>
+            <p data-i18n="about_card3_desc">
               Website berkualitas dan teroptimasi bisa anda dapatkan dengan harga terjangkau. Berbagai fitur dan fungsi yang flexible dapat disesuaikan dengan kebutuhan dan budget bisnis anda.
             </p>
           </div>
@@ -108,13 +109,13 @@
   </section>
 
   <!-- SERVICES -->
-  <section class="section">
+  <section id="services" class="section">
     <div class="container">
-      <h2 class="section-title heading-font">
+      <h2 class="section-title heading-font" data-i18n="services_title">
         Urusan Dunia Digital<br />
         Semua bisa GroovDev Tangani
       </h2>
-      <p class="section-subtitle" style="font-size: 20px; margin-top: -10px; margin-bottom: -10px;">our services</p>
+      <p class="section-subtitle" style="font-size: 20px; margin-top: -10px; margin-bottom: -10px;" data-i18n="services_subtitle">our services</p>
 
       <div class="services-grid" id="servicesGrid"></div>
       <div class="service-detail" id="serviceDetail"></div>
@@ -124,7 +125,7 @@
   <!-- PORTFOLIO -->
   <section id="portfolio" class="section dark">
     <div class="container">
-      <h2 class="section-title white heading-font">Our Portofolio</h2>
+      <h2 class="section-title white heading-font" data-i18n="portfolio_title">Our Portofolio</h2>
 
       <div class="slider" id="slider" aria-label="Portfolio slider">
         <button class="slider-arrow prev" type="button" aria-label="Previous slide">‹</button>
@@ -146,11 +147,11 @@
         <img src="./assets/images/cta_image.png" alt="" loading="lazy" />
       </div>
       <div class="cta-content">
-        <p >Website keren bukan pilihan, tapi kebutuhan</p>
-        <h3>
+        <p data-i18n="cta_text">Website keren bukan pilihan, tapi kebutuhan</p>
+        <h3 data-i18n="cta_heading">
           Sekarang kamu bisa punya website profesional yang keren mulai dari 1,9 juta! *
         </h3>
-        <button class="btn-cta" data-scroll="#contact">
+        <button class="btn-cta" data-scroll="#contact" data-i18n="cta_button">
           Hubungi Kami
         </button>
       </div>
@@ -162,10 +163,10 @@
     <div class="container">
       <div class="blog-header">
         <div>
-          <h2 class="section-title heading-font">Blog &amp; Insight</h2>
-          <p class="section-subtitle">cerita dan tips dari tim GroovDev</p>
+          <h2 class="section-title heading-font" data-i18n="blog_title">Blog &amp; Insight</h2>
+          <p class="section-subtitle" data-i18n="blog_subtitle">cerita dan tips dari tim GroovDev</p>
         </div>
-        <p class="blog-lede">Ringkasan singkat dari proyek, playbook, dan checklist yang kami pakai sehari-hari untuk membantu bisnis go-digital.</p>
+        <p class="blog-lede" data-i18n="blog_lede">Ringkasan singkat dari proyek, playbook, dan checklist yang kami pakai sehari-hari untuk membantu bisnis go-digital.</p>
       </div>
 
       <div class="blog-grid" id="blogGrid" aria-live="polite">
@@ -173,11 +174,11 @@
           <div class="blog-cover placeholder"></div>
           <div class="blog-card-body">
             <div class="blog-meta">
-              <span>Loading</span>
-              <span>• artikel</span>
+              <span data-i18n="blog_loading">Loading</span>
+              <span data-i18n="blog_placeholder_meta">• artikel</span>
             </div>
-            <h3>Memuat artikel...</h3>
-            <p class="blog-excerpt">Sedang mengambil konten terbaru dari tim GroovDev.</p>
+            <h3 data-i18n="blog_loading_title">Memuat artikel...</h3>
+            <p class="blog-excerpt" data-i18n="blog_loading_desc">Sedang mengambil konten terbaru dari tim GroovDev.</p>
           </div>
         </article>
       </div>
@@ -189,7 +190,7 @@
   <!-- INSTAGRAM -->
   <section class="section lavender">
     <div class="container">
-      <h2 class="section-title heading-font">Follow instagram kami</h2>
+      <h2 class="section-title heading-font" data-i18n="instagram_title">Follow instagram kami</h2>
       <a class="ig-link" href="https://instagram.com/groovdev/" target="_blank" rel="noopener noreferrer">@groovdev</a>
 
       <div class="ig-carousel" id="igCarousel" aria-label="Instagram posts carousel">
@@ -215,7 +216,7 @@
   <section id="contact" class="section light">
     <div class="container contact-grid">
       <div class="contact-info">
-        <h2 class="heading-font">Kontak Kami</h2>
+        <h2 class="heading-font" data-i18n="contact_title">Kontak Kami</h2>
         <div class="contact-intro" data-i18n="contact_intro">
           Ingin berdiskusi lebih lanjut tentang kebutuhan website anda?
           Silakan hubungi kami melalui informasi di bawah atau isi formulir
@@ -231,7 +232,7 @@
             </a>
           </span>
           <div class="contact-text">
-            <h3>Telepon</h3>
+            <h3 data-i18n="contact_phone">Telepon</h3>
             <p> +62 8888 8888</p>
           </div>
         </div>
@@ -243,7 +244,7 @@
             </a>
           </span>
           <div class="contact-text">
-            <h3>Email</h3>
+            <h3 data-i18n="contact_email">Email</h3>
             <p> info@groovdev.co.id</p>
           </div>
         </div>
@@ -255,7 +256,7 @@
             </a>
           </span>
           <div class="contact-text">
-            <h3>Alamat</h3>
+            <h3 data-i18n="contact_address">Alamat</h3>
             <p> DKI Jakarta</p>
           </div>
         </div>
@@ -264,36 +265,36 @@
           <span>
             <img src="./assets/images/konsultasi_online.svg" alt="" />
           </span> 
-          <strong style="display: contents; margin-bottom:12px;">Konsultasi Online Gratis</strong><br>
-           Jam Kerja<br>
-           Senin - Jumat<br>
-           09.00 - 17.00 WIB
+          <strong style="display: contents; margin-bottom:12px;" data-i18n="contact_consultation_title">Konsultasi Online Gratis</strong><br>
+          <span data-i18n="contact_hours_label">Jam Kerja</span><br>
+          <span data-i18n="contact_hours_days">Senin - Jumat</span><br>
+          <span data-i18n="contact_hours_time">09.00 - 17.00 WIB</span>
           <a href="#contact" class="btn-consultation"></a>
         </div>
       </div>
 
       <form class="contact-form" id="contactForm" novalidate>
         <label>
-          Nama
-          <input type="text" name="name" required placeholder="Nama Lengkap" />
+          <span data-i18n="form_name_label">Nama</span>
+          <input type="text" name="name" required placeholder="Nama Lengkap" data-i18n-placeholder="form_name_placeholder" />
         </label>
 
         <label>
-          Email
-          <input type="email" name="email" required placeholder="email@anda.com" />
+          <span data-i18n="form_email_label">Email</span>
+          <input type="email" name="email" required placeholder="email@anda.com" data-i18n-placeholder="form_email_placeholder" />
         </label>
 
         <label>
-          Telepon
-          <input type="tel" name="phone" placeholder="0812..." />
+          <span data-i18n="form_phone_label">Telepon</span>
+          <input type="tel" name="phone" placeholder="0812..." data-i18n-placeholder="form_phone_placeholder" />
         </label>
 
         <label>
-          Pesan
-          <textarea name="message" required placeholder="Tulis pesan anda disini..."></textarea>
+          <span data-i18n="form_message_label">Pesan</span>
+          <textarea name="message" required placeholder="Tulis pesan anda disini..." data-i18n-placeholder="form_message_placeholder"></textarea>
         </label>
 
-        <button type="submit" class="btn-submit">Kirim Form</button>
+        <button type="submit" class="btn-submit" data-i18n="form_submit">Kirim Form</button>
       </form>
     </div>
   </section>
@@ -322,16 +323,15 @@
         </a>
       </div>
 
-      <p id="brand-slogan" class="brand-slogan">make it happen with GroovDev - your groovy web developer</p>
+      <p id="brand-slogan" class="brand-slogan" data-i18n="footer_slogan">make it happen with GroovDev - your groovy web developer</p>
 
       <span class="smiley"><img src="./assets/images/smiley.png" alt="" /></span>
 
       <hr style="border: none; border-top: 1px solid #ffffff52;" />
 
       <small class="copyright">
-        Copyright © 2025 GroovDev Indonesia | All Rights Reserved |
-        Kebijakan Privasi<br />
-        Build by GroovDev
+        <span data-i18n="footer_copyright">Copyright © 2025 GroovDev Indonesia | All Rights Reserved | Privacy Policy</span><br />
+        <span data-i18n="footer_build">Build by GroovDev</span>
       </small>
     </div>
   </footer>
