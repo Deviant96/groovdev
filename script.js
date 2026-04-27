@@ -156,6 +156,13 @@ document.getElementById("contactForm")?.addEventListener("submit", e => {
       category: "Company Profile"
     },
     {
+      title: "Victory Consulting Indonesia - Company Profile & Booking",
+      link: "https://victoryindonesia.com/",
+      image: "assets/images/portfolio/victory-consulting.jpg",
+      desc: "Website company profile dan sistem booking untuk Victory Consulting Indonesia.",
+      category: "Company Profile"
+    },
+    {
       title: "Yayasan Masjid Agung Ibnu Batutah",
       link: "https://masjidibnubatutah.id/",
       image: "assets/images/portfolio/ibnu-batutah.png",
