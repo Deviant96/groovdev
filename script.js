@@ -68,7 +68,8 @@ const translations = {
     form_success: "Terima kasih! Form berhasil dikirim.",
     footer_slogan: "wujudkan dengan GroovDev - web developer groovy Anda",
     footer_copyright: "Copyright © 2025 GroovDev Indonesia | Hak Cipta Dilindungi | Kebijakan Privasi",
-    footer_build: "Build by GroovDev"
+    footer_build: "Build by GroovDev",
+    wa_float_label: "Chat WhatsApp"
   },
   en: {
     page_title: "GroovDev - Make it happen",
@@ -136,7 +137,8 @@ const translations = {
     form_success: "Thank you! Your form has been sent.",
     footer_slogan: "make it happen with GroovDev - your groovy web developer",
     footer_copyright: "Copyright © 2025 GroovDev Indonesia | All Rights Reserved | Privacy Policy",
-    footer_build: "Built by GroovDev"
+    footer_build: "Built by GroovDev",
+    wa_float_label: "Chat on WhatsApp"
   }
 };
 
