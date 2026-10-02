@@ -3,345 +3,345 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GroovDev — Make it happen</title>
+  <title>GroovDev — Jasa Pembuatan Website untuk UMKM Jakarta</title>
+  <meta name="description" content="GroovDev adalah web developer & designer independen di Jakarta. Website profesional untuk bisnis dan UMKM mulai dari Rp1,9 juta. Konsultasi gratis." />
+  <meta property="og:title" content="GroovDev — Make it happen" />
+  <meta property="og:description" content="Website profesional untuk bisnis dan UMKM lokal. Berbasis Jakarta. Mulai dari Rp1,9 juta." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/images/banner.webp" />
   <link rel="icon" type="image/png" sizes="256x256" href="./assets/images/logo-256x256.png" />
   <link rel="apple-touch-icon" href="./assets/images/logo-256x256.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="nunito-sans-regular">
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="container nav-inner">
-      <div class="logo">GroovDev</div>
+<body>
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#top" aria-label="GroovDev home">
+        <img src="./assets/images/logo.png" alt="" width="28" height="28" />
+        <span>GROOVDEV</span>
+      </a>
 
-      <nav class="nav-menu" id="navMenu">
+      <nav class="nav__links" id="navMenu">
         <a href="#about" data-i18n="nav_about">Tentang</a>
         <a href="#services" data-i18n="nav_services">Layanan</a>
-        <a href="#portfolio" data-i18n="nav_portfolio">Portofolio</a>
+        <a href="#work" data-i18n="nav_portfolio">Portofolio</a>
         <a href="#blog" data-i18n="nav_blog">Blog</a>
         <a href="#contact" data-i18n="nav_contact">Kontak</a>
       </nav>
 
-      <div class="nav-actions">
-        <div class="lang-toggle">
-          <button class="lang-option active" data-lang="id">ID</button>
-          <button class="lang-option" data-lang="en">EN</button>
+      <div class="nav__actions">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button class="lang-option active" data-lang="id" type="button">ID</button>
+          <button class="lang-option" data-lang="en" type="button">EN</button>
         </div>
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-          ☰
+        <a
+          class="btn btn--nav"
+          href="https://wa.me/6285285732415?text=Halo%20GroovDev%2C%20saya%20ingin%20konsultasi%20tentang%20pembuatan%20website."
+          target="_blank"
+          rel="noopener noreferrer"
+          data-i18n="nav_cta"
+        >Konsultasi</a>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- HERO -->
+  <main id="top">
     <section class="hero">
-      <div class="container hero-inner">
-          <!-- 50% image area -->
-          <div class="hero-stage">
-          <div class="hero-visual">
-              <!-- bottom-middle overlay text -->
-              <div class="hero-overlay" aria-label="GroovDev hero text">
-                <p class="hero-small nunito-sans-regular-mono" data-i18n="hero_small">make it happen</p>
-                <h1 class="hero-big heading-font">GROOVDEV</h1>
-                <p class="hero-desc" data-i18n="hero_desc">your groovy web developer</p>
-              </div>
-          </div>
-          </div>
+      <div class="hero__media" aria-hidden="true">
+        <img src="./assets/images/banner.webp" alt="" class="hero__img" />
+        <div class="hero__wash"></div>
+      </div>
 
-          <!-- 50% negative space -->
-          <!-- <div class="hero-space" aria-hidden="true"></div> -->
+      <div class="hero__content">
+        <p class="label" data-i18n="hero_small">make it happen</p>
+        <h1 class="hero__brand">GROOVDEV</h1>
+        <p class="hero__line" data-i18n="hero_desc">Website profesional untuk UMKM — siap online, mudah dikelola.</p>
+        <div class="hero__cta">
+          <a
+            class="btn btn--primary"
+            href="https://wa.me/6285285732415?text=Halo%20GroovDev%2C%20saya%20mau%20tanya%20soal%20website%20mulai%20Rp1%2C9%20juta."
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="hero_cta_primary"
+          >Chat WhatsApp</a>
+          <a class="btn btn--ghost" href="#work" data-i18n="hero_cta_secondary">Lihat karya</a>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span data-i18n="hero_scroll">scroll</span>
+        <i></i>
       </div>
     </section>
 
+    <section id="about" class="section about">
+      <div class="shell">
+        <div class="about__grid">
+          <div class="about__left stark-reveal">
+            <p class="label" data-i18n="about_sub1">siapa groovdev</p>
+            <h2 data-i18n="about_title">Pembuat website yang handal ada di sini untuk anda</h2>
+            <hr class="rule" />
+          </div>
+          <div class="about__right stark-reveal">
+            <p class="lede" data-i18n="about_desc1">
+              Kami adalah web developer &amp; designer independen berbasis di Jakarta, Indonesia. Misi kami adalah untuk membantu membangun eksistensi digital bagi bisnis dan UMKM lokal.
+            </p>
+            <p data-i18n="about_desc2">
+              Di GroovDev kami berkomitmen memberikan pelayanan menyeluruh untuk solusi digital business anda. Tim kami yang kompeten dan berpengalaman dibidangnya dapat membantu anda dengan cepat dengan harga yang terjangkau.
+            </p>
+          </div>
+        </div>
 
-  <!-- ABOUT -->
-  <section id="about" class="section light">
-    <div class="container">
-      <h2 class="section-title heading-font" data-i18n="about_title">
-        Pembuat website yang handal ada di sini untuk anda
-      </h2>
-
-      <div class="about-text">
-        <h3 class="" data-i18n="about_sub1">siapa groovdev</h3>
-        <p data-i18n="about_desc1">
-          Kami adalah web developer & designer independen berbasis di Jakarta, Indonesia. Misi kami adalah untuk membantu membangun eksistensi digital bagi bisnis dan UMKM lokal.
-        </p>
-
-        <h3 class="" data-i18n="about_sub2" style="margin-top: 20px;">Kenapa memilih Groovdev</h3>
-        <p data-i18n="about_desc2">
-          Di GroovDev kami berkomitmen memberikan pelayanan menyeluruh untuk solusi digital business anda. Tim kami yang kompeten dan berpengalaman dibidangnya dapat membantu anda dengan cepat dengan harga yang terjangkau.
-        </p>
-      </div>
-
-      <div class="about-cards">
-        <div class="about-card">
-          <span class="icon"><img src="./assets/images/Berpengalaman_icon.svg" alt="" /></span>
-          <div class="about-card-text">
-            <h4 data-i18n="about_card1_title">Berpengalaman</h4>
+        <div class="pillars stark-reveal-group">
+          <article class="pillar stark-reveal">
+            <span class="pillar__num">01</span>
+            <img src="./assets/images/Berpengalaman_icon.svg" alt="" />
+            <h3 data-i18n="about_card1_title">Berpengalaman</h3>
             <p data-i18n="about_card1_desc">
               Kami siap membantu anda dengan pengalaman kami membangun website untuk berbagai jenis bisnis, UMKM, lembaga yayasan, maupun kebutuhan untuk personal branding anda.
             </p>
-          </div>
-        </div>
-
-        <div class="about-card">
-          <span class="icon"><img src="./assets/images/Terpadu_icon.svg" alt="" /></span>
-          <div class="about-card-text">
-            <h4 data-i18n="about_card2_title">Terpadu</h4>
+          </article>
+          <article class="pillar stark-reveal">
+            <span class="pillar__num">02</span>
+            <img src="./assets/images/Terpadu_icon.svg" alt="" />
+            <h3 data-i18n="about_card2_title">Terpadu</h3>
             <p data-i18n="about_card2_desc">
               Kami menawarkan berbagai layanan seputar kebutuhan digital. Semua proyek dirancang secara profesional dan anda akan dipandu dari awal hingga siap online dan berkembang.
             </p>
-          </div>
-        </div>
-
-        <div class="about-card">
-          <span class="icon"><img src="./assets/images/Terjangkau_icon.svg" alt="" /></span>
-          <div class="about-card-text">
-            <h4 data-i18n="about_card3_title">Terjangkau</h4>
+          </article>
+          <article class="pillar stark-reveal">
+            <span class="pillar__num">03</span>
+            <img src="./assets/images/Terjangkau_icon.svg" alt="" />
+            <h3 data-i18n="about_card3_title">Terjangkau</h3>
             <p data-i18n="about_card3_desc">
               Website berkualitas dan teroptimasi bisa anda dapatkan dengan harga terjangkau. Berbagai fitur dan fungsi yang flexible dapat disesuaikan dengan kebutuhan dan budget bisnis anda.
             </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section id="services" class="section services">
+      <div class="shell">
+        <div class="section-head stark-reveal">
+          <p class="label" data-i18n="services_subtitle">layanan kami</p>
+          <h2 data-i18n="services_title">Urusan Dunia Digital<br />Semua bisa GroovDev Tangani</h2>
+        </div>
+
+        <div class="services-rail stark-reveal-group" id="servicesGrid"></div>
+        <div class="service-panel" id="serviceDetail"></div>
+      </div>
+    </section>
+
+    <section id="work" class="section work">
+      <div class="shell">
+        <div class="section-head stark-reveal">
+          <p class="label" data-i18n="portfolio_sub">Proyek nyata. Link live. Bukan mockup fantasi.</p>
+          <h2 data-i18n="portfolio_title">Portofolio Kami</h2>
+        </div>
+        <div class="work-list" id="workList" aria-label="Portfolio"></div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="section process" id="process">
+      <div class="shell">
+        <div class="section-head stark-reveal">
+          <p class="label" data-i18n="process_subtitle">brief → desain → launch → support</p>
+          <h2 data-i18n="process_title">Alur kerja yang tidak bertele-tele</h2>
+        </div>
+        <ol class="process-steps stark-reveal-group">
+          <li class="stark-reveal">
+            <span class="process-num">01</span>
+            <h3 data-i18n="process_1_title">Brief &amp; arah</h3>
+            <p data-i18n="process_1_desc">Cerita bisnis, target, dan budget. Kami potong noise, sisakan yang perlu online.</p>
+          </li>
+          <li class="stark-reveal">
+            <span class="process-num">02</span>
+            <h3 data-i18n="process_2_title">Desain &amp; build</h3>
+            <p data-i18n="process_2_desc">Visual + struktur konten dibangun cepat, responsif, siap diuji di HP dulu.</p>
+          </li>
+          <li class="stark-reveal">
+            <span class="process-num">03</span>
+            <h3 data-i18n="process_3_title">Launch</h3>
+            <p data-i18n="process_3_desc">Domain, hosting, form, WhatsApp button — semua dikunci sebelum go-live.</p>
+          </li>
+          <li class="stark-reveal">
+            <span class="process-num">04</span>
+            <h3 data-i18n="process_4_title">Support</h3>
+            <p data-i18n="process_4_desc">Setelah live, kami tetap bisa bantu perbaikan, SEO, dan konten lanjutan.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="cta-band__media" aria-hidden="true">
+        <img src="./assets/images/cta_image.png" alt="" class="stark-image" />
+      </div>
+      <div class="cta-band__copy stark-reveal">
+        <p class="label" data-i18n="cta_text">Website keren bukan pilihan, tapi kebutuhan</p>
+        <h2 data-i18n="cta_heading">Sekarang kamu bisa punya website profesional yang keren mulai dari 1,9 juta! *</h2>
+        <p class="cta-note" data-i18n="cta_note">*Harga mulai untuk paket website dasar (landing / one-page). Company profile &amp; e-commerce menyesuaikan scope.</p>
+        <a class="btn btn--primary" href="#contact" data-i18n="cta_button">Hubungi Kami</a>
+      </div>
+    </section>
+
+    <section id="blog" class="section blog">
+      <div class="shell">
+        <div class="section-head section-head--row stark-reveal">
+          <div>
+            <p class="label" data-i18n="blog_subtitle">cerita dan tips dari tim GroovDev</p>
+            <h2 data-i18n="blog_title">Blog &amp; Insight</h2>
           </div>
+          <p class="blog-lede" data-i18n="blog_lede">Ringkasan singkat dari proyek, playbook, dan checklist yang kami pakai sehari-hari untuk membantu bisnis go-digital.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" class="section">
-    <div class="container">
-      <h2 class="section-title heading-font" data-i18n="services_title">
-        Urusan Dunia Digital<br />
-        Semua bisa GroovDev Tangani
-      </h2>
-      <p class="section-subtitle" style="font-size: 20px; margin-top: -10px; margin-bottom: -10px;" data-i18n="services_subtitle">our services</p>
-
-      <div class="services-grid" id="servicesGrid"></div>
-      <div class="service-detail" id="serviceDetail"></div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section id="portfolio" class="section dark">
-    <div class="container">
-      <h2 class="section-title white heading-font" data-i18n="portfolio_title">Our Portofolio</h2>
-
-      <div class="slider" id="slider" aria-label="Portfolio slider">
-        <button class="slider-arrow prev" type="button" aria-label="Previous slide">‹</button>
-
-        <div class="slides" id="slides" role="list"></div>
-
-        <button class="slider-arrow next" type="button" aria-label="Next slide">›</button>
-
-        <div class="slider-dots" id="sliderDots" aria-label="Slide navigation"></div>
-    </div>
-
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta">
-    <div class="cta-box">
-      <div class="cta-image">
-        <img src="./assets/images/cta_image.png" alt="" loading="lazy" />
-      </div>
-      <div class="cta-content">
-        <p data-i18n="cta_text">Website keren bukan pilihan, tapi kebutuhan</p>
-        <h3 data-i18n="cta_heading">
-          Sekarang kamu bisa punya website profesional yang keren mulai dari 1,9 juta! *
-        </h3>
-        <button class="btn-cta" data-scroll="#contact" data-i18n="cta_button">
-          Hubungi Kami
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOG -->
-  <section id="blog" class="section light blog">
-    <div class="container">
-      <div class="blog-header">
-        <div>
-          <h2 class="section-title heading-font" data-i18n="blog_title">Blog &amp; Insight</h2>
-          <p class="section-subtitle" data-i18n="blog_subtitle">cerita dan tips dari tim GroovDev</p>
-        </div>
-        <p class="blog-lede" data-i18n="blog_lede">Ringkasan singkat dari proyek, playbook, dan checklist yang kami pakai sehari-hari untuk membantu bisnis go-digital.</p>
-      </div>
-
-      <div class="blog-grid" id="blogGrid" aria-live="polite">
-        <article class="blog-card blog-card--placeholder">
-          <div class="blog-cover placeholder"></div>
-          <div class="blog-card-body">
-            <div class="blog-meta">
-              <span data-i18n="blog_loading">Loading</span>
-              <span data-i18n="blog_placeholder_meta">• artikel</span>
+        <div class="blog-grid" id="blogGrid" aria-live="polite">
+          <article class="blog-card blog-card--placeholder">
+            <div class="blog-cover placeholder"></div>
+            <div class="blog-card-body">
+              <div class="blog-meta">
+                <span data-i18n="blog_loading">Loading</span>
+              </div>
+              <h3 data-i18n="blog_loading_title">Memuat artikel...</h3>
+              <p class="blog-excerpt" data-i18n="blog_loading_desc">Sedang mengambil konten terbaru dari tim GroovDev.</p>
             </div>
-            <h3 data-i18n="blog_loading_title">Memuat artikel...</h3>
-            <p class="blog-excerpt" data-i18n="blog_loading_desc">Sedang mengambil konten terbaru dari tim GroovDev.</p>
-          </div>
-        </article>
-      </div>
-
-      <div class="blog-detail" id="blogDetail" aria-live="polite"></div>
-    </div>
-  </section>
-  
-  <!-- INSTAGRAM -->
-  <section class="section lavender">
-    <div class="container">
-      <h2 class="section-title heading-font" data-i18n="instagram_title">Follow instagram kami</h2>
-      <a class="ig-link" href="https://instagram.com/groovdev/" target="_blank" rel="noopener noreferrer">@groovdev</a>
-
-      <div class="ig-carousel" id="igCarousel" aria-label="Instagram posts carousel">
-        <button class="ig-arrow prev" type="button" aria-label="Previous post">‹</button>
-
-        <div class="ig-slides" id="igSlides" role="list">
-          <a href="https://www.instagram.com/groovdev/p/DSl7UxYD3Js/" class="ig-item" role="listitem" target="_blank" rel="noopener"><img src="./assets/images/instagram_posts/ig1.jpg" loading="lazy" alt="Instagram post 1" /></a>
-          <a href="https://www.instagram.com/groovdev/p/DSl7UxYD3Js/" class="ig-item" role="listitem" target="_blank" rel="noopener"><img src="./assets/images/instagram_posts/ig2.jpg" loading="lazy" alt="Instagram post 2" /></a>
-          <a href="https://www.instagram.com/groovdev/p/DSl7UxYD3Js/" class="ig-item" role="listitem" target="_blank" rel="noopener"><img src="./assets/images/instagram_posts/ig3.jpg" loading="lazy" alt="Instagram post 3" /></a>
-          <a href="https://www.instagram.com/groovdev/p/DSl7UxYD3Js/" class="ig-item" role="listitem" target="_blank" rel="noopener"><img src="./assets/images/instagram_posts/ig4.jpg" loading="lazy" alt="Instagram post 4" /></a>
-          <a href="https://www.instagram.com/groovdev/p/DSl7UxYD3Js/" class="ig-item" role="listitem" target="_blank" rel="noopener"><img src="./assets/images/instagram_posts/ig5.jpg" loading="lazy" alt="Instagram post 5" /></a>
-          <a href="https://www.instagram.com/groovdev/p/DSl7UxYD3Js/" class="ig-item" role="listitem" target="_blank" rel="noopener"><img src="./assets/images/instagram_posts/ig6.jpg" loading="lazy" alt="Instagram post 6" /></a>
+          </article>
         </div>
-
-        <button class="ig-arrow next" type="button" aria-label="Next post">›</button>
-
-        <div class="ig-dots" id="igDots" aria-label="Post navigation"></div>
+        <div class="blog-detail" id="blogDetail" aria-live="polite"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section light">
-    <div class="container contact-grid">
-      <div class="contact-info">
-        <h2 class="heading-font" data-i18n="contact_title">Kontak Kami</h2>
-        <div class="contact-intro" data-i18n="contact_intro">
-          Ingin berdiskusi lebih lanjut tentang kebutuhan website anda?
-          Silakan hubungi kami melalui informasi di bawah atau isi formulir
-          kontak yang tersedia.
+    <section class="section ig" id="instagram">
+      <div class="shell">
+        <div class="section-head section-head--row stark-reveal">
+          <h2 data-i18n="instagram_title">Follow instagram kami</h2>
+          <a class="ig-link" href="https://instagram.com/groovdev/" target="_blank" rel="noopener noreferrer">@groovdev</a>
         </div>
+        <div class="ig-mosaic stark-reveal-group" id="igMosaic">
+          <a href="https://www.instagram.com/groovdev/" class="ig-tile stark-reveal" target="_blank" rel="noopener noreferrer"><img src="./assets/images/instagram_posts/ig1.jpg" loading="lazy" alt="Instagram GroovDev 1" class="stark-image" /></a>
+          <a href="https://www.instagram.com/groovdev/" class="ig-tile stark-reveal" target="_blank" rel="noopener noreferrer"><img src="./assets/images/instagram_posts/ig2.jpg" loading="lazy" alt="Instagram GroovDev 2" class="stark-image" /></a>
+          <a href="https://www.instagram.com/groovdev/" class="ig-tile stark-reveal" target="_blank" rel="noopener noreferrer"><img src="./assets/images/instagram_posts/ig3.jpg" loading="lazy" alt="Instagram GroovDev 3" class="stark-image" /></a>
+          <a href="https://www.instagram.com/groovdev/" class="ig-tile stark-reveal" target="_blank" rel="noopener noreferrer"><img src="./assets/images/instagram_posts/ig4.jpg" loading="lazy" alt="Instagram GroovDev 4" class="stark-image" /></a>
+          <a href="https://www.instagram.com/groovdev/" class="ig-tile stark-reveal" target="_blank" rel="noopener noreferrer"><img src="./assets/images/instagram_posts/ig5.jpg" loading="lazy" alt="Instagram GroovDev 5" class="stark-image" /></a>
+          <a href="https://www.instagram.com/groovdev/" class="ig-tile stark-reveal" target="_blank" rel="noopener noreferrer"><img src="./assets/images/instagram_posts/ig6.jpg" loading="lazy" alt="Instagram GroovDev 6" class="stark-image" /></a>
+        </div>
+      </div>
+    </section>
 
-        <div class="contact-separator"></div>
+    <hr class="divider" />
 
-        <div class="contact-item">
-          <span class="contact-icon">
-            <a href="tel:6285285732415" target="_blank" rel="noopener noreferrer">
+    <section id="contact" class="section contact">
+      <div class="shell contact-grid">
+        <div class="contact-info stark-reveal">
+          <p class="label" data-i18n="contact_eyebrow">siap diskusi</p>
+          <h2 data-i18n="contact_title">Kontak Kami</h2>
+          <p class="lede" data-i18n="contact_intro">
+            Ingin berdiskusi lebih lanjut tentang kebutuhan website anda?
+            Silakan hubungi kami melalui informasi di bawah atau isi formulir
+            kontak yang tersedia.
+          </p>
+
+          <div class="contact-list">
+            <a class="contact-row" href="tel:+6285285732415">
               <img src="./assets/images/phone_icon.svg" alt="" />
+              <div>
+                <span data-i18n="contact_phone">Telepon</span>
+                <strong>+62 852 8573 2415</strong>
+              </div>
             </a>
-          </span>
-          <div class="contact-text">
-            <h3 data-i18n="contact_phone">Telepon</h3>
-            <a href="tel:6285285732415" target="_blank" rel="noopener noreferrer">
-              <p> +62 852 8573 2415</p>
-            </a>
-          </div>
-        </div>
-        
-        <div class="contact-item">
-          <span class="contact-icon">
-            <a href="mailto:info@groovdev.co.id" target="_blank" rel="noopener noreferrer">
+            <a class="contact-row" href="mailto:info@groovdev.co.id">
               <img src="./assets/images/email_icon.svg" alt="" />
+              <div>
+                <span data-i18n="contact_email">Email</span>
+                <strong>info@groovdev.co.id</strong>
+              </div>
             </a>
-          </span>
-          <div class="contact-text">
-            <h3 data-i18n="contact_email">Email</h3>
-            <a href="mailto:info@groovdev.co.id" target="_blank" rel="noopener noreferrer">
-              <p> info@groovdev.co.id</p>
-            </a>
-          </div>
-        </div>
-        
-        <div class="contact-item">
-          <span class="contact-icon">
-            <a href="https://goo.gl/maps/example" target="_blank" rel="noopener noreferrer">
+            <div class="contact-row">
               <img src="./assets/images/location_icon.svg" alt="" />
-            </a>
-          </span>
-          <div class="contact-text">
-            <h3 data-i18n="contact_address">Alamat</h3>
-            <p> DKI Jakarta</p>
+              <div>
+                <span data-i18n="contact_address">Alamat</span>
+                <strong>DKI Jakarta</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="consult-box">
+            <img src="./assets/images/konsultasi_online.svg" alt="" />
+            <div>
+              <strong data-i18n="contact_consultation_title">Konsultasi Online Gratis</strong>
+              <p>
+                <span data-i18n="contact_hours_label">Jam Kerja</span>:
+                <span data-i18n="contact_hours_days">Senin - Jumat</span>,
+                <span data-i18n="contact_hours_time">09.00 - 17.00 WIB</span>
+              </p>
+            </div>
           </div>
         </div>
-        
-        <div class="contact-consultation">
-          <span>
-            <img src="./assets/images/konsultasi_online.svg" alt="" />
-          </span> 
-          <strong style="display: contents; margin-bottom:12px;" data-i18n="contact_consultation_title">Konsultasi Online Gratis</strong><br>
-          <span data-i18n="contact_hours_label">Jam Kerja</span><br>
-          <span data-i18n="contact_hours_days">Senin - Jumat</span><br>
-          <span data-i18n="contact_hours_time">09.00 - 17.00 WIB</span>
-          <a href="#contact" class="btn-consultation"></a>
-        </div>
+
+        <form class="contact-form stark-reveal" id="contactForm" novalidate>
+          <label>
+            <span data-i18n="form_name_label">Nama</span>
+            <input type="text" name="name" required placeholder="Nama Lengkap" data-i18n-placeholder="form_name_placeholder" />
+          </label>
+          <label>
+            <span data-i18n="form_email_label">Email</span>
+            <input type="email" name="email" required placeholder="email@anda.com" data-i18n-placeholder="form_email_placeholder" />
+          </label>
+          <label>
+            <span data-i18n="form_phone_label">Telepon</span>
+            <input type="tel" name="phone" placeholder="0812..." data-i18n-placeholder="form_phone_placeholder" />
+          </label>
+          <label>
+            <span data-i18n="form_message_label">Pesan</span>
+            <textarea name="message" required placeholder="Tulis pesan anda disini..." data-i18n-placeholder="form_message_placeholder"></textarea>
+          </label>
+          <button type="submit" class="btn btn--primary btn--block" data-i18n="form_submit">Kirim via WhatsApp</button>
+          <p class="form-hint" data-i18n="form_hint">Form membuka chat WhatsApp dengan pesan terisi — cepat dan langsung ke kami.</p>
+        </form>
       </div>
+    </section>
+  </main>
 
-      <form class="contact-form" id="contactForm" novalidate>
-        <label>
-          <span data-i18n="form_name_label">Nama</span>
-          <input type="text" name="name" required placeholder="Nama Lengkap" data-i18n-placeholder="form_name_placeholder" />
-        </label>
-
-        <label>
-          <span data-i18n="form_email_label">Email</span>
-          <input type="email" name="email" required placeholder="email@anda.com" data-i18n-placeholder="form_email_placeholder" />
-        </label>
-
-        <label>
-          <span data-i18n="form_phone_label">Telepon</span>
-          <input type="tel" name="phone" placeholder="0812..." data-i18n-placeholder="form_phone_placeholder" />
-        </label>
-
-        <label>
-          <span data-i18n="form_message_label">Pesan</span>
-          <textarea name="message" required placeholder="Tulis pesan anda disini..." data-i18n-placeholder="form_message_placeholder"></textarea>
-        </label>
-
-        <button type="submit" class="btn-submit" data-i18n="form_submit">Kirim Form</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-box">
-      <div class="logo"><img src="./assets/images/logo-256x256.png" width="80" height="80" alt="GroovDev Logo" /></div>
-      <span class="badge heading-font">GROOVDEV</span>
+    <div class="shell footer__inner">
+      <div class="footer__brand">
+        <img src="./assets/images/logo-256x256.png" width="56" height="56" alt="GroovDev Logo" />
+        <span>GROOVDEV</span>
+      </div>
 
       <div class="social-media">
         <a href="https://instagram.com/groovdev" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
         <a href="https://facebook.com/groovdev" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         </a>
         <a href="https://wa.me/6285285732415" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-          </svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         </a>
       </div>
 
-      <p id="brand-slogan" class="brand-slogan" data-i18n="footer_slogan">make it happen with GroovDev - your groovy web developer</p>
-
-      <span class="smiley"><img src="./assets/images/face-smile-upside-down.svg" alt="" /></span>
-
-      <hr style="border: none; border-top: 1px solid #ffffff52;" />
+      <p class="brand-slogan" data-i18n="footer_slogan">make it happen with GroovDev — your groovy web developer</p>
+      <img class="smiley" src="./assets/images/face-smile-upside-down.svg" alt="" />
 
       <small class="copyright">
-        <span data-i18n="footer_copyright">Copyright © 2025 GroovDev Indonesia | All Rights Reserved | Privacy Policy</span><br />
+        <span data-i18n="footer_copyright">Copyright © 2026 GroovDev Indonesia | All Rights Reserved</span><br />
         <span data-i18n="footer_build">Build by GroovDev</span>
       </small>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp -->
   <a
     class="wa-float"
     href="https://wa.me/6285285732415?text=Halo%20GroovDev%2C%20saya%20ingin%20konsultasi%20tentang%20pembuatan%20website."
@@ -349,12 +349,8 @@
     rel="noopener noreferrer"
     aria-label="Chat on WhatsApp"
   >
-    <span class="wa-float__ring" aria-hidden="true"></span>
-    <span class="wa-float__ring wa-float__ring--delay" aria-hidden="true"></span>
     <span class="wa-float__btn" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-      </svg>
+      <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </span>
     <span class="wa-float__tooltip" data-i18n="wa_float_label">Chat WhatsApp</span>
   </a>

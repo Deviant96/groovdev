@@ -1,16 +1,21 @@
 const TRANSLATION_STORAGE_KEY = "groovdev-language";
 const defaultLang = "id";
+const WA_NUMBER = "6285285732415";
 
 const translations = {
   id: {
-    page_title: "GroovDev - Wujudkan",
+    page_title: "GroovDev — Jasa Pembuatan Website untuk UMKM Jakarta",
     nav_about: "Tentang",
     nav_services: "Layanan",
     nav_portfolio: "Portofolio",
     nav_blog: "Blog",
     nav_contact: "Kontak",
+    nav_cta: "Konsultasi",
     hero_small: "make it happen",
-    hero_desc: "your groovy web developer",
+    hero_desc: "Website profesional untuk UMKM — siap online, mudah dikelola.",
+    hero_cta_primary: "Chat WhatsApp",
+    hero_cta_secondary: "Lihat karya",
+    hero_scroll: "scroll",
     about_title: "Pembuat website yang handal ada di sini untuk anda",
     about_sub1: "siapa groovdev",
     about_desc1: "Kami adalah web developer & designer independen berbasis di Jakarta, Indonesia. Misi kami adalah untuk membantu membangun eksistensi digital bagi bisnis dan UMKM lokal.",
@@ -24,16 +29,29 @@ const translations = {
     about_card3_desc: "Website berkualitas dan teroptimasi bisa anda dapatkan dengan harga terjangkau. Berbagai fitur dan fungsi yang flexible dapat disesuaikan dengan kebutuhan dan budget bisnis anda.",
     services_title: "Urusan Dunia Digital<br />Semua bisa GroovDev Tangani",
     services_subtitle: "layanan kami",
+    services_cta: "Diskusi paket ini",
     portfolio_title: "Portofolio Kami",
+    portfolio_sub: "Proyek nyata. Link live. Bukan mockup fantasi.",
     portfolio_visit: "Kunjungi Situs",
+    portfolio_drag: "Geser / scroll horizontal",
+    process_title: "Alur kerja yang tidak bertele-tele",
+    process_subtitle: "brief → desain → launch → support",
+    process_1_title: "Brief & arah",
+    process_1_desc: "Cerita bisnis, target, dan budget. Kami potong noise, sisakan yang perlu online.",
+    process_2_title: "Desain & build",
+    process_2_desc: "Visual + struktur konten dibangun cepat, responsif, siap diuji di HP dulu.",
+    process_3_title: "Launch",
+    process_3_desc: "Domain, hosting, form, WhatsApp button — semua dikunci sebelum go-live.",
+    process_4_title: "Support",
+    process_4_desc: "Setelah live, kami tetap bisa bantu perbaikan, SEO, dan konten lanjutan.",
     cta_text: "Website keren bukan pilihan, tapi kebutuhan",
     cta_heading: "Sekarang kamu bisa punya website profesional yang keren mulai dari 1,9 juta! *",
+    cta_note: "*Harga mulai untuk paket website dasar (landing / one-page). Company profile & e-commerce menyesuaikan scope.",
     cta_button: "Hubungi Kami",
     blog_title: "Blog & Insight",
     blog_subtitle: "cerita dan tips dari tim GroovDev",
     blog_lede: "Ringkasan singkat dari proyek, playbook, dan checklist yang kami pakai sehari-hari untuk membantu bisnis go-digital.",
     blog_loading: "Memuat",
-    blog_placeholder_meta: "• artikel",
     blog_loading_title: "Memuat artikel...",
     blog_loading_desc: "Sedang mengambil konten terbaru dari tim GroovDev.",
     blog_modal_label: "Artikel blog",
@@ -47,6 +65,7 @@ const translations = {
     blog_content_unavailable: "Konten belum tersedia.",
     blog_load_error: "Tidak dapat memuat artikel saat ini.",
     instagram_title: "Follow instagram kami",
+    contact_eyebrow: "siap diskusi",
     contact_title: "Kontak Kami",
     contact_intro: "Ingin berdiskusi lebih lanjut tentang kebutuhan website anda? Silakan hubungi kami melalui informasi di bawah atau isi formulir kontak yang tersedia.",
     contact_phone: "Telepon",
@@ -64,23 +83,28 @@ const translations = {
     form_phone_placeholder: "0812...",
     form_message_label: "Pesan",
     form_message_placeholder: "Tulis pesan anda disini...",
-    form_submit: "Kirim Form",
-    form_success: "Terima kasih! Form berhasil dikirim.",
-    footer_slogan: "wujudkan dengan GroovDev - web developer groovy Anda",
-    footer_copyright: "Copyright © 2025 GroovDev Indonesia | Hak Cipta Dilindungi | Kebijakan Privasi",
+    form_submit: "Kirim via WhatsApp",
+    form_hint: "Form membuka chat WhatsApp dengan pesan terisi — cepat dan langsung ke kami.",
+    form_success: "Membuka WhatsApp...",
+    footer_slogan: "make it happen with GroovDev — your groovy web developer",
+    footer_copyright: "Copyright © 2026 GroovDev Indonesia | All Rights Reserved",
     footer_build: "Build by GroovDev",
     wa_float_label: "Chat WhatsApp"
   },
   en: {
-    page_title: "GroovDev - Make it happen",
+    page_title: "GroovDev — Website Development for Jakarta SMEs",
     nav_about: "About",
     nav_services: "Services",
     nav_portfolio: "Portfolio",
     nav_blog: "Blog",
     nav_contact: "Contact",
+    nav_cta: "Consult",
     hero_small: "make it happen",
-    hero_desc: "your groovy web developer",
-    about_title: "Reliable website builder is here for you",
+    hero_desc: "Professional websites for SMEs — ready online, easy to manage.",
+    hero_cta_primary: "Chat WhatsApp",
+    hero_cta_secondary: "See work",
+    hero_scroll: "scroll",
+    about_title: "A reliable website builder is here for you",
     about_sub1: "who is groovdev",
     about_desc1: "We are an independent web developer & designer based in Jakarta, Indonesia. Our mission is to help build a digital presence for local businesses and SMEs.",
     about_sub2: "Why choose Groovdev",
@@ -93,16 +117,29 @@ const translations = {
     about_card3_desc: "Quality and optimized websites can be obtained at affordable prices. Various flexible features and functions can be tailored to your business needs and budget.",
     services_title: "All Digital Matters<br />Can Be Handled by GroovDev",
     services_subtitle: "our services",
+    services_cta: "Discuss this package",
     portfolio_title: "Our Portfolio",
+    portfolio_sub: "Real projects. Live links. Not fantasy mockups.",
     portfolio_visit: "Visit Site",
+    portfolio_drag: "Drag / scroll horizontally",
+    process_title: "A process that doesn’t wander",
+    process_subtitle: "brief → design → launch → support",
+    process_1_title: "Brief & direction",
+    process_1_desc: "Business story, goals, and budget. We cut the noise and keep what needs to go online.",
+    process_2_title: "Design & build",
+    process_2_desc: "Visuals + content structure built fast, responsive, tested on phones first.",
+    process_3_title: "Launch",
+    process_3_desc: "Domain, hosting, forms, WhatsApp button — locked before go-live.",
+    process_4_title: "Support",
+    process_4_desc: "After launch we can still help with fixes, SEO, and ongoing content.",
     cta_text: "A cool website is not a choice, but a necessity",
     cta_heading: "Now you can have a cool professional website starting from 1.9 million! *",
+    cta_note: "*Starting price for a basic website package (landing / one-page). Company profile & e-commerce depend on scope.",
     cta_button: "Contact Us",
     blog_title: "Blog & Insight",
     blog_subtitle: "stories and tips from the GroovDev team",
     blog_lede: "A brief summary of projects, playbooks, and checklists we use daily to help businesses go digital.",
     blog_loading: "Loading",
-    blog_placeholder_meta: "• article",
     blog_loading_title: "Loading articles...",
     blog_loading_desc: "Fetching the latest content from the GroovDev team.",
     blog_modal_label: "Blog article",
@@ -116,6 +153,7 @@ const translations = {
     blog_content_unavailable: "Content is not available yet.",
     blog_load_error: "Unable to load articles right now.",
     instagram_title: "Follow our Instagram",
+    contact_eyebrow: "ready to talk",
     contact_title: "Contact Us",
     contact_intro: "Want to discuss your website needs further? Please contact us through the information below or fill out the available contact form.",
     contact_phone: "Phone",
@@ -133,10 +171,11 @@ const translations = {
     form_phone_placeholder: "0812...",
     form_message_label: "Message",
     form_message_placeholder: "Write your message here...",
-    form_submit: "Send Form",
-    form_success: "Thank you! Your form has been sent.",
-    footer_slogan: "make it happen with GroovDev - your groovy web developer",
-    footer_copyright: "Copyright © 2025 GroovDev Indonesia | All Rights Reserved | Privacy Policy",
+    form_submit: "Send via WhatsApp",
+    form_hint: "The form opens WhatsApp with your message filled in — fast and straight to us.",
+    form_success: "Opening WhatsApp...",
+    footer_slogan: "make it happen with GroovDev — your groovy web developer",
+    footer_copyright: "Copyright © 2026 GroovDev Indonesia | All Rights Reserved",
     footer_build: "Built by GroovDev",
     wa_float_label: "Chat on WhatsApp"
   }
@@ -168,12 +207,10 @@ function applyStaticTranslations() {
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     const value = t(node.dataset.i18n);
     if (typeof value !== "string") return;
-
     if (value.includes("<")) {
       node.innerHTML = value;
       return;
     }
-
     node.textContent = value;
   });
 
@@ -181,85 +218,6 @@ function applyStaticTranslations() {
     node.setAttribute("placeholder", t(node.dataset.i18nPlaceholder));
   });
 }
-
-const serviceDefinitions = [
-  {
-    image: "assets/images/service1.png",
-    price: "Rp. 1,9 juta,-",
-    title: {
-      id: "Pembuatan Website",
-      en: "Website Development"
-    },
-    desc: {
-      id: "Kami membantu bisnis membangun website impian mereka:",
-      en: "We help businesses establish their dream website:"
-    },
-    features: {
-      id: [
-        "Website satu halaman",
-        "Profil perusahaan",
-        "Website portofolio",
-        "Halaman arahan",
-        "Website e-commerce"
-      ],
-      en: [
-        "One-page website",
-        "Company profile",
-        "Portfolio website",
-        "Landing page",
-        "E-commerce website"
-      ]
-    }
-  },
-  {
-    image: "assets/images/service2.png",
-    price: "Rp. 750 ribu,-",
-    title: {
-      id: "Perbaikan Website",
-      en: "Website Improvement"
-    },
-    desc: {
-      id: "Tingkatkan UX, kecepatan, dan konversi.",
-      en: "Improve UX, speed, and conversions."
-    },
-    features: {
-      id: ["Penyegaran UI/UX", "Perbaikan responsivitas", "Optimasi CTA"],
-      en: ["UI/UX refresh", "Fix responsiveness", "CTA optimization"]
-    }
-  },
-  {
-    image: "assets/images/service3.png",
-    price: "Rp. 1,2 juta,-",
-    title: {
-      id: "Optimasi SEO & Performa",
-      en: "SEO & Performance Optimization"
-    },
-    desc: {
-      id: "Tingkatkan visibilitas dan kecepatan website Anda.",
-      en: "Boost your website's visibility and speed."
-    },
-    features: {
-      id: ["SEO on-page", "Penyetelan performa", "Pengaturan analitik"],
-      en: ["On-page SEO", "Performance tuning", "Analytics setup"]
-    }
-  },
-  {
-    image: "assets/images/service4.png",
-    price: "Rp. 1 juta,-",
-    title: {
-      id: "Desain Grafis & Konten",
-      en: "Graphic Design & Content"
-    },
-    desc: {
-      id: "Tingkatkan website Anda dengan grafis dan konten profesional.",
-      en: "Enhance your website with professional graphics and content."
-    },
-    features: {
-      id: ["Grafis kustom", "Pembuatan konten", "Materi branding"],
-      en: ["Custom graphics", "Content creation", "Branding materials"]
-    }
-  }
-];
 
 function getLocalizedValue(value) {
   if (Array.isArray(value)) return value;
@@ -277,30 +235,123 @@ function localizeReadTime(value = "") {
   return value.replace(/menit baca/gi, "min read");
 }
 
+const serviceDefinitions = [
+  {
+    image: "assets/images/service1.png",
+    price: "Rp. 1,9 juta,-",
+    title: { id: "Pembuatan Website", en: "Website Development" },
+    desc: {
+      id: "Kami membantu bisnis membangun website impian mereka:",
+      en: "We help businesses establish their dream website:"
+    },
+    features: {
+      id: ["Website satu halaman", "Profil perusahaan", "Website portofolio", "Halaman arahan", "Website e-commerce"],
+      en: ["One-page website", "Company profile", "Portfolio website", "Landing page", "E-commerce website"]
+    }
+  },
+  {
+    image: "assets/images/service2.png",
+    price: "Rp. 750 ribu,-",
+    title: { id: "Perbaikan Website", en: "Website Improvement" },
+    desc: {
+      id: "Tingkatkan UX, kecepatan, dan konversi.",
+      en: "Improve UX, speed, and conversions."
+    },
+    features: {
+      id: ["Penyegaran UI/UX", "Perbaikan responsivitas", "Optimasi CTA"],
+      en: ["UI/UX refresh", "Fix responsiveness", "CTA optimization"]
+    }
+  },
+  {
+    image: "assets/images/service3.png",
+    price: "Rp. 1,2 juta,-",
+    title: { id: "Optimasi SEO & Performa", en: "SEO & Performance Optimization" },
+    desc: {
+      id: "Tingkatkan visibilitas dan kecepatan website Anda.",
+      en: "Boost your website's visibility and speed."
+    },
+    features: {
+      id: ["SEO on-page", "Penyetelan performa", "Pengaturan analitik"],
+      en: ["On-page SEO", "Performance tuning", "Analytics setup"]
+    }
+  },
+  {
+    image: "assets/images/service4.png",
+    price: "Rp. 1 juta,-",
+    title: { id: "Desain Grafis & Konten", en: "Graphic Design & Content" },
+    desc: {
+      id: "Tingkatkan website Anda dengan grafis dan konten profesional.",
+      en: "Enhance your website with professional graphics and content."
+    },
+    features: {
+      id: ["Grafis kustom", "Pembuatan konten", "Materi branding"],
+      en: ["Custom graphics", "Content creation", "Branding materials"]
+    }
+  }
+];
+
+const portfolioItems = [
+  {
+    title: "Vivaci Living - Company Profile",
+    link: "https://vivaci-living.com/",
+    image: "assets/images/portfolio/vivaci-living.png",
+    desc: {
+      id: "Website company profile untuk Vivaci Living, menampilkan layanan dan portofolio mereka.",
+      en: "Company profile website for Vivaci Living, showcasing their services and portfolio."
+    },
+    category: { id: "Profil Perusahaan", en: "Company Profile" }
+  },
+  {
+    title: "Victory Consulting Indonesia - Company Profile & Booking",
+    link: "https://victoryindonesia.com/",
+    image: "assets/images/portfolio/victory-consulting.jpg",
+    desc: {
+      id: "Website company profile dan sistem booking untuk Victory Consulting Indonesia.",
+      en: "Company profile website and booking system for Victory Consulting Indonesia."
+    },
+    category: { id: "Profil Perusahaan", en: "Company Profile" }
+  },
+  {
+    title: "Yayasan Masjid Agung Ibnu Batutah",
+    link: "https://masjidibnubatutah.id/",
+    image: "assets/images/portfolio/ibnu-batutah.png",
+    desc: {
+      id: "Website profil yayasan dengan struktur konten rapi, responsif, dan mudah dikelola.",
+      en: "Foundation profile website with neat content structure, responsive, and easy to manage."
+    },
+    category: { id: "Yayasan", en: "Non-Profit" }
+  },
+  {
+    title: "Handduk.co - E-commerce",
+    link: "https://handduk.co/",
+    image: "assets/images/portfolio/handduk.png",
+    desc: {
+      id: "Toko online untuk produk handuk berkualitas dengan desain menarik dan navigasi mudah.",
+      en: "Online store for quality towel products with attractive design and easy navigation."
+    },
+    category: { id: "E-Commerce", en: "E-Commerce" }
+  }
+];
+
 /* MOBILE NAV */
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
 
 hamburger?.addEventListener("click", () => {
-  navMenu.classList.toggle("open");
+  const open = navMenu.classList.toggle("open");
+  hamburger.setAttribute("aria-expanded", open ? "true" : "false");
+  document.body.classList.toggle("nav-open", open);
 });
 
-// Close menu when a link is clicked
-document.querySelectorAll(".nav-menu a").forEach(link => {
+document.querySelectorAll(".nav__links a").forEach((link) => {
   link.addEventListener("click", () => {
-    navMenu.classList.remove("open");
+    navMenu?.classList.remove("open");
+    hamburger?.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("nav-open");
   });
 });
 
-/* SMOOTH SCROLL */
-document.querySelectorAll("[data-scroll]").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelector(btn.dataset.scroll)?.scrollIntoView({
-      behavior: "smooth"
-    });
-  });
-});
-
+/* SERVICES */
 const grid = document.getElementById("servicesGrid");
 const detail = document.getElementById("serviceDetail");
 let openIndex = 0;
@@ -315,16 +366,26 @@ function getServices() {
 }
 
 function getServiceDetailHTML(s) {
+  const waText = encodeURIComponent(
+    currentLang === "id"
+      ? `Halo GroovDev, saya tertarik paket ${s.title} (${s.price}).`
+      : `Hi GroovDev, I'm interested in ${s.title} (${s.price}).`
+  );
+
   return `
-      <div class="service-detail-inner">
-        <div class="service-detail-header">
-          <p class="nunito-sans-regular-mono" style="font-size: 18px;">${s.desc}</p>
-        </div>
-        <div class="service-detail-features">
-          <ul>${s.features.map(f => `<li>${f}</li>`).join("")}</ul>
+    <div class="service-detail-inner">
+      <div class="service-detail-header">
+        <p class="lede">${s.desc}</p>
+        <p class="service-price">${s.price}</p>
+        <div class="service-detail-cta">
+          <a class="btn btn--primary" href="https://wa.me/${WA_NUMBER}?text=${waText}" target="_blank" rel="noopener noreferrer">${t("services_cta")}</a>
         </div>
       </div>
-    `;
+      <div class="service-detail-features">
+        <ul>${s.features.map((f) => `<li>${f}</li>`).join("")}</ul>
+      </div>
+    </div>
+  `;
 }
 
 function renderServices() {
@@ -332,17 +393,19 @@ function renderServices() {
 
   const services = getServices();
   const activeIndex = typeof openIndex === "number" ? openIndex : 0;
-
   grid.innerHTML = "";
 
   services.forEach((service, index) => {
-    const card = document.createElement("div");
-    card.className = "service-card";
+    const card = document.createElement("article");
+    card.className = "service-card stark-reveal";
     if (activeIndex === index) card.classList.add("active");
 
     card.innerHTML = `
-      <h3>${service.title}</h3>
-      ${service.image ? `<img src="${service.image}" alt="${service.title}" class="service-img">` : ""}
+      ${service.image ? `<img src="${service.image}" alt="${service.title}" loading="lazy" class="stark-image">` : ""}
+      <div class="service-card__body">
+        <h3>${service.title}</h3>
+        <p class="service-price">${service.price}</p>
+      </div>
     `;
 
     card.onclick = () => {
@@ -371,7 +434,6 @@ function renderServices() {
 
       document.querySelectorAll(".service-card").forEach((item) => item.classList.remove("active"));
       card.classList.add("active");
-
       openIndex = index;
       detail.innerHTML = getServiceDetailHTML(service);
       detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -385,386 +447,112 @@ function renderServices() {
   }
 }
 
-applyStaticTranslations();
-syncLanguageButtons();
-renderServices();
+/* PORTFOLIO LIST */
+function renderPortfolio() {
+  const list = document.getElementById("workList");
+  if (!list) return;
 
-/* CONTACT FORM */
-document.getElementById("contactForm")?.addEventListener("submit", e => {
-  e.preventDefault();
-  alert(t("form_success"));
-  e.target.reset();
-});
-
-
-/* PORTFOLIO SLIDER - Modern Revamped Version */
-(function initPortfolioSlider() {
-  const slidesEl = document.getElementById("slides");
-  const dotsEl = document.getElementById("sliderDots");
-  const sliderRoot = document.getElementById("slider");
-
-  if (!slidesEl || !dotsEl || !sliderRoot) return;
-
-  const prevBtn = sliderRoot.querySelector(".slider-arrow.prev");
-  const nextBtn = sliderRoot.querySelector(".slider-arrow.next");
-
-  const items = [
-    {
-      title: "Vivaci Living - Company Profile",
-      link: "https://vivaci-living.com/",
-      image: "assets/images/portfolio/vivaci-living.png",
-      desc: getLocalizedValue({
-        id: "Website company profile untuk Vivaci Living, menampilkan layanan dan portofolio mereka.",
-        en: "Company profile website for Vivaci Living, showcasing their services and portfolio."
-      }),
-      category: getLocalizedValue({
-        id: "Profil Perusahaan",
-        en: "Company Profile"
-      })
-    },
-    {
-      title: "Victory Consulting Indonesia - Company Profile & Booking",
-      link: "https://victoryindonesia.com/",
-      image: "assets/images/portfolio/victory-consulting.jpg",
-      desc: getLocalizedValue({
-        id: "Website company profile dan sistem booking untuk Victory Consulting Indonesia.",
-        en: "Company profile website and booking system for Victory Consulting Indonesia."
-      }),
-      category: getLocalizedValue({
-        id: "Profil Perusahaan",
-        en: "Company Profile"
-      })
-    },
-    {
-      title: "Yayasan Masjid Agung Ibnu Batutah",
-      link: "https://masjidibnubatutah.id/",
-      image: "assets/images/portfolio/ibnu-batutah.png",
-      desc: getLocalizedValue({
-        id: "Website profil yayasan dengan struktur konten rapi, responsif, dan mudah dikelola.",
-        en: "Foundation profile website with neat content structure, responsive, and easy to manage."
-      }),
-      category: getLocalizedValue({
-        id: "Yayasan",
-        en: "Non-Profit"
-      })
-    },
-    {
-      title: "Handduk.co - E-commerce",
-      link: "https://handduk.co/",
-      image: "assets/images/portfolio/handduk.png",
-      desc: getLocalizedValue({
-        id: "Toko online untuk produk handuk berkualitas dengan desain menarik dan navigasi mudah.",
-        en: "Online store for quality towel products with attractive design and easy navigation."
-      }),
-      category: getLocalizedValue({
-        id: "E-Commerce",
-        en: "E-Commerce"
-      })
-    }
-  ];
-
-  let currentIndex = 0;
-  let autoPlayInterval = null;
-  let isAutoPlaying = true;
-  const AUTO_PLAY_DELAY = 4500;
-
-  // Render slides with enhanced markup
-  slidesEl.innerHTML = items
-    .map((item, idx) => {
-      const thumbStyle = item.image 
-        ? `background-image: url('${item.image}');` 
-        : '';
+  list.innerHTML = portfolioItems
+    .map((item) => {
+      const desc = getLocalizedValue(item.desc);
+      const category = getLocalizedValue(item.category);
       return `
-        <article class="slide" role="listitem" data-index="${idx}">
-          <div class="slide-inner">
-            <div class="slide-category">${item.category}</div>
-            <div class="slide-image" style="${thumbStyle}">
-              <div class="slide-overlay"></div>
-            </div>
-            <div class="slide-content">
-              <h3 class="slide-title">${item.title}</h3>
-              <p class="slide-desc">${item.desc}</p>
-              <a href="${item.link}" class="slide-link" target="_blank" rel="noopener">
-                <span>${t("portfolio_visit")}</span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
+        <article class="work-item stark-reveal">
+          <div class="work-item__media">
+            <span class="work-item__cat">${category}</span>
+            <img src="${item.image}" alt="${item.title}" loading="lazy" class="stark-image" />
+          </div>
+          <div class="work-item__body">
+            <h3>${item.title}</h3>
+            <p>${desc}</p>
+            <a class="work-item__link" href="${item.link}" target="_blank" rel="noopener noreferrer">
+              ${t("portfolio_visit")}
+            </a>
           </div>
         </article>
       `;
     })
     .join("");
+}
 
-  // Render dots with progress indicators
-  dotsEl.innerHTML = items
-    .map((_, i) => `
-      <button class="dot" type="button" aria-label="${currentLang === "id" ? `Ke slide ${i + 1}` : `Go to slide ${i + 1}`}" data-dot="${i}">
-        <span class="dot-progress"></span>
-      </button>
-    `)
-    .join("");
+/* CONTACT → WHATSAPP */
+document.getElementById("contactForm")?.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  const name = String(data.get("name") || "").trim();
+  const email = String(data.get("email") || "").trim();
+  const phone = String(data.get("phone") || "").trim();
+  const message = String(data.get("message") || "").trim();
 
-  const slideNodes = Array.from(slidesEl.querySelectorAll(".slide"));
-  const dotNodes = Array.from(dotsEl.querySelectorAll(".dot"));
-
-  // Utility functions
-  const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
-  
-  function setActiveSlide(idx) {
-    idx = clamp(idx, 0, items.length - 1);
-    
-    // Update slides
-    slideNodes.forEach((node, i) => {
-      node.classList.remove('active', 'prev', 'next');
-      if (i === idx) {
-        node.classList.add('active');
-      } else if (i === idx - 1 || (idx === 0 && i === items.length - 1)) {
-        node.classList.add('prev');
-      } else if (i === idx + 1 || (idx === items.length - 1 && i === 0)) {
-        node.classList.add('next');
-      }
-    });
-
-    // Update dots
-    dotNodes.forEach((dot, i) => {
-      dot.classList.toggle('active', i === idx);
-      const progress = dot.querySelector('.dot-progress');
-      if (i === idx && isAutoPlaying) {
-        progress.style.animation = `dotProgress ${AUTO_PLAY_DELAY}ms linear`;
-      } else {
-        progress.style.animation = 'none';
-      }
-    });
-
-    // Update transform
-    const offset = -idx * 100;
-    slidesEl.style.transform = `translateX(${offset}%)`;
-    
-    currentIndex = idx;
+  if (!name || !email || !message) {
+    form.reportValidity();
+    return;
   }
 
-  function goToSlide(idx) {
-    stopAutoPlay();
-    setActiveSlide(idx);
-    startAutoPlay();
-  }
+  const text = [
+    currentLang === "id" ? "Halo GroovDev," : "Hi GroovDev,",
+    "",
+    `${currentLang === "id" ? "Nama" : "Name"}: ${name}`,
+    `Email: ${email}`,
+    phone ? `${currentLang === "id" ? "Telepon" : "Phone"}: ${phone}` : null,
+    "",
+    message
+  ]
+    .filter(Boolean)
+    .join("\n");
 
-  function nextSlide() {
-    const nextIdx = (currentIndex + 1) % items.length;
-    setActiveSlide(nextIdx);
-  }
+  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+});
 
-  function prevSlide() {
-    const prevIdx = (currentIndex - 1 + items.length) % items.length;
-    setActiveSlide(prevIdx);
-  }
+/* SCROLL REVEAL — Resonant Stark */
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let revealObserver = null;
 
-  // Auto-play functionality
-  function startAutoPlay() {
-    if (!isAutoPlaying) return;
-    stopAutoPlay();
-    autoPlayInterval = setInterval(nextSlide, AUTO_PLAY_DELAY);
-  }
+function observeReveals() {
+  const targets = document.querySelectorAll(".stark-reveal:not(.is-visible)");
 
-  function stopAutoPlay() {
-    if (autoPlayInterval) {
-      clearInterval(autoPlayInterval);
-      autoPlayInterval = null;
-    }
-  }
-
-  function pauseAutoPlay() {
-    isAutoPlaying = false;
-    stopAutoPlay();
-  }
-
-  function resumeAutoPlay() {
-    isAutoPlaying = true;
-    startAutoPlay();
-  }
-
-  // Event listeners - Arrows
-  prevBtn?.addEventListener("click", () => {
-    prevSlide();
-    stopAutoPlay();
-    setTimeout(startAutoPlay, 1000);
-  });
-
-  nextBtn?.addEventListener("click", () => {
-    nextSlide();
-    stopAutoPlay();
-    setTimeout(startAutoPlay, 1000);
-  });
-
-  // Event listeners - Dots
-  dotNodes.forEach((dot) => {
-    dot.addEventListener("click", () => {
-      const idx = Number(dot.dataset.dot);
-      goToSlide(idx);
-    });
-  });
-
-  // Event listeners - Keyboard
-  sliderRoot.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") {
-      prevSlide();
-      stopAutoPlay();
-      setTimeout(startAutoPlay, 1000);
-    }
-    if (e.key === "ArrowRight") {
-      nextSlide();
-      stopAutoPlay();
-      setTimeout(startAutoPlay, 1000);
-    }
-  });
-
-  // Touch/Swipe support
-  let touchStartX = 0;
-  let touchEndX = 0;
-  let isSwiping = false;
-
-  slidesEl.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-    isSwiping = true;
-    pauseAutoPlay();
-  }, { passive: true });
-
-  slidesEl.addEventListener('touchmove', (e) => {
-    if (!isSwiping) return;
-    touchEndX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  slidesEl.addEventListener('touchend', () => {
-    if (!isSwiping) return;
-    isSwiping = false;
-    
-    const swipeThreshold = 50;
-    const diff = touchStartX - touchEndX;
-
-    if (Math.abs(diff) > swipeThreshold) {
-      if (diff > 0) {
-        nextSlide();
-      } else {
-        prevSlide();
-      }
-    }
-    
-    setTimeout(resumeAutoPlay, 1000);
-  }, { passive: true });
-
-  // Pause on hover
-  sliderRoot.addEventListener('mouseenter', pauseAutoPlay);
-  sliderRoot.addEventListener('mouseleave', resumeAutoPlay);
-
-  // Pause on visibility change
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      stopAutoPlay();
-    } else {
-      startAutoPlay();
-    }
-  });
-
-  // Initialize
-  setActiveSlide(0);
-  startAutoPlay();
-
-  // Handle window resize
-  let resizeTimeout;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      setActiveSlide(currentIndex);
-    }, 150);
-  });
-})();
-
-
-/* SCROLL REVEAL (no library) */
-(function initScrollReveal() {
-  // Elements to reveal:
-  // - Sections (big blocks)
-  // - Cards/grids (smaller blocks)
-  const targets = [
-    ...document.querySelectorAll(".section"),
-    ...document.querySelectorAll(".about-card"),
-    ...document.querySelectorAll(".service-card"),
-    ...document.querySelectorAll(".slide"),
-    ...document.querySelectorAll(".cta-box"),
-    ...document.querySelectorAll(".contact-info"),
-    ...document.querySelectorAll(".contact-form"),
-    ...document.querySelectorAll(".ig-item"),
-    ...document.querySelectorAll(".footer-box")
-  ];
-
-  // Add base class
-  targets.forEach((el) => el.classList.add("reveal"));
-
-  // If reduced motion, just show
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReduced) {
+  if (prefersReducedMotion) {
     targets.forEach((el) => el.classList.add("is-visible"));
     return;
   }
 
-  // Optional: add stagger delays to groups (cards/grids)
-  function applyStagger(nodeList, step = 70, cap = 350) {
-    nodeList.forEach((el, i) => {
-      const d = Math.min(i * step, cap);
-      el.style.setProperty("--delay", `${d}ms`);
-      el.setAttribute("data-delay", "1");
-    });
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    );
   }
 
-  applyStagger(document.querySelectorAll(".about-card"), 80, 320);
-  applyStagger(document.querySelectorAll(".service-card"), 80, 320);
-  applyStagger(document.querySelectorAll(".ig-item"), 60, 300);
-
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          io.unobserve(entry.target); // reveal once (clean)
-        }
-      });
-    },
-    {
-      root: null,
-      threshold: 0.12,
-      rootMargin: "0px 0px -10% 0px" // reveal a bit before fully visible
-    }
-  );
-
-  targets.forEach((el) => io.observe(el));
-})();
+  targets.forEach((el) => revealObserver.observe(el));
+}
 
 /* LANGUAGE TOGGLE */
-const langOptions = document.querySelectorAll(".lang-option");
-
-langOptions.forEach(btn => {
+document.querySelectorAll(".lang-option").forEach((btn) => {
   btn.addEventListener("click", () => {
     const lang = btn.dataset.lang;
     if (!translations[lang] || lang === currentLang) return;
-
     try {
       localStorage.setItem(TRANSLATION_STORAGE_KEY, lang);
     } catch {
-      // Ignore storage errors and keep fallback language behavior.
+      // ignore
     }
-
     window.location.reload();
   });
 });
 
-/* BLOG SECTION */
+/* BLOG */
 (function initBlogSection() {
-  const grid = document.getElementById("blogGrid");
-  const detail = document.getElementById("blogDetail");
-
-  if (!grid || !detail) return;
+  const gridEl = document.getElementById("blogGrid");
+  const detailEl = document.getElementById("blogDetail");
+  if (!gridEl || !detailEl) return;
 
   const modal = document.createElement("div");
   modal.className = "blog-modal";
@@ -776,7 +564,7 @@ langOptions.forEach(btn => {
     </div>
   `;
   const modalPanel = modal.querySelector(".blog-modal__panel");
-  modalPanel?.appendChild(detail);
+  modalPanel?.appendChild(detailEl);
   document.body.appendChild(modal);
 
   const sources = [
@@ -848,7 +636,6 @@ langOptions.forEach(btn => {
   function getPostMeta(post) {
     const baseMeta = post.meta || {};
     const localizedMeta = post.localizedMeta?.[currentLang] || {};
-
     return {
       ...baseMeta,
       ...localizedMeta,
@@ -859,19 +646,13 @@ langOptions.forEach(btn => {
   function parseFrontMatter(text) {
     const trimmed = text.trim();
     const match = trimmed.match(/^---\s*([\s\S]*?)---\s*([\s\S]*)$/);
+    if (!match) return { meta: {}, body: text };
 
-    if (!match) {
-      return { meta: {}, body: text };
-    }
-
-    const rawMeta = match[1].split(/\r?\n/);
     const meta = {};
-
-    rawMeta.forEach((line) => {
+    match[1].split(/\r?\n/).forEach((line) => {
       const [key, ...rest] = line.split(":");
       if (!key || rest.length === 0) return;
       const value = rest.join(":").trim();
-
       if (value.startsWith("[") && value.endsWith("]")) {
         meta[key.trim()] = value
           .slice(1, -1)
@@ -890,16 +671,15 @@ langOptions.forEach(btn => {
     const lines = md.split(/\r?\n/);
     const html = [];
     let inList = false;
-
-    const fmt = (text) => text
-      .replace(/`([^`]+)`/g, "<code>$1</code>")
-      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-      .replace(/\*([^*]+)\*/g, "<em>$1</em>")
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+    const fmt = (text) =>
+      text
+        .replace(/`([^`]+)`/g, "<code>$1</code>")
+        .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+        .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
 
     lines.forEach((line) => {
       const trimmed = line.trim();
-
       if (!trimmed) {
         if (inList) return;
         html.push("");
@@ -931,25 +711,23 @@ langOptions.forEach(btn => {
         html.push("</ul>");
         inList = false;
       }
-
       html.push(`<p>${fmt(trimmed)}</p>`);
     });
 
     if (inList) html.push("</ul>");
-
     return html.filter(Boolean).join("\n");
   }
 
   function renderDetail(post) {
     if (!post) {
-      detail.innerHTML = `<p class="blog-empty">${t("blog_empty")}</p>`;
+      detailEl.innerHTML = `<p class="blog-empty">${t("blog_empty")}</p>`;
       return;
     }
 
     const meta = getPostMeta(post);
     const tags = Array.isArray(meta.tags) ? meta.tags : [];
 
-    detail.innerHTML = `
+    detailEl.innerHTML = `
       <div class="blog-meta">
         <span>${meta.date || ""}</span>
         ${meta.readTime ? `<span>• ${meta.readTime}</span>` : ""}
@@ -963,7 +741,8 @@ langOptions.forEach(btn => {
       </div>
     `;
 
-    detail.querySelector("[data-scroll]")?.addEventListener("click", () => {
+    detailEl.querySelector("[data-scroll]")?.addEventListener("click", () => {
+      closeModal();
       document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
     });
   }
@@ -972,7 +751,6 @@ langOptions.forEach(btn => {
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
-    modal.querySelector(".blog-modal__close")?.focus();
   }
 
   function closeModal() {
@@ -982,7 +760,7 @@ langOptions.forEach(btn => {
   }
 
   function renderGrid(posts) {
-    grid.innerHTML = posts
+    gridEl.innerHTML = posts
       .map((post, idx) => {
         const meta = getPostMeta(post);
         const tags = Array.isArray(meta.tags) ? meta.tags : [];
@@ -991,7 +769,7 @@ langOptions.forEach(btn => {
           : "";
 
         return `
-          <article class="blog-card ${idx === 0 ? "active" : ""}" data-idx="${idx}" tabindex="0">
+          <article class="blog-card stark-reveal ${idx === 0 ? "active" : ""}" data-idx="${idx}" tabindex="0">
             <div class="blog-cover" ${coverStyle}></div>
             <div class="blog-card-body">
               <div class="blog-meta">
@@ -1008,31 +786,23 @@ langOptions.forEach(btn => {
       })
       .join("");
 
-    function setActive(index, shouldScroll = true) {
+    function setActive(index, shouldOpen = true) {
       const selected = posts[index];
       if (!selected) return;
-
-      grid.querySelectorAll(".blog-card").forEach((card) => card.classList.remove("active"));
-      const activeCard = grid.querySelector(`[data-idx="${index}"]`);
-      activeCard?.classList.add("active");
-
+      gridEl.querySelectorAll(".blog-card").forEach((card) => card.classList.remove("active"));
+      gridEl.querySelector(`[data-idx="${index}"]`)?.classList.add("active");
       renderDetail(selected);
-      if (shouldScroll) openModal();
+      if (shouldOpen) openModal();
     }
 
-    grid.querySelectorAll(".blog-card").forEach((card) => {
+    gridEl.querySelectorAll(".blog-card").forEach((card) => {
       const idx = Number(card.dataset.idx);
-
       card.addEventListener("click", () => setActive(idx));
       card.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           setActive(idx);
         }
-      });
-      card.querySelector(".blog-read")?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        setActive(idx);
       });
     });
 
@@ -1063,224 +833,40 @@ langOptions.forEach(btn => {
   }
 
   Promise.all(sources.map(loadPost))
-    .then(renderGrid)
+    .then((posts) => {
+      renderGrid(posts);
+      observeReveals();
+    })
     .catch(() => {
-      grid.innerHTML = "";
-      detail.innerHTML = `<p class="blog-empty">${t("blog_load_error")}</p>`;
+      gridEl.innerHTML = "";
+      detailEl.innerHTML = `<p class="blog-empty">${t("blog_load_error")}</p>`;
     });
 
   modal.addEventListener("click", (e) => {
-    if (e.target?.matches("[data-close], .blog-modal__close")) {
-      closeModal();
-    }
+    if (e.target?.matches("[data-close], .blog-modal__close")) closeModal();
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("is-open")) {
-      closeModal();
-    }
+    if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
   });
 })();
 
-/* IG CAROUSEL */
-/* INSTAGRAM CAROUSEL - Horizontal Single-Row Scrolling */
-(function initIgCarousel() {
-  const slidesEl = document.getElementById("igSlides");
-  const dotsEl = document.getElementById("igDots");
-  const carousel = document.getElementById("igCarousel");
+/* NAV SOLID ON SCROLL */
+(function initNavSolid() {
+  const nav = document.querySelector(".nav");
+  if (!nav) return;
 
-  if (!slidesEl || !dotsEl || !carousel) return;
+  const update = () => {
+    nav.classList.toggle("is-solid", window.scrollY > 40);
+  };
 
-  const prevBtn = carousel.querySelector(".ig-arrow.prev");
-  const nextBtn = carousel.querySelector(".ig-arrow.next");
-  const slideNodes = Array.from(slidesEl.querySelectorAll(".ig-item"));
-  
-  const AUTO_PLAY_DELAY = 3500;
-  const totalItems = slideNodes.length;
-  
-  let currentIndex = 0;
-  let autoPlayInterval = null;
-  let isAutoPlaying = true;
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  // Render dots based on items (one dot per item)
-  dotsEl.innerHTML = Array.from({ length: totalItems }, (_, i) => 
-    `<button class="dot" type="button" aria-label="Go to item ${i + 1}" data-index="${i}">
-      <span class="dot-progress"></span>
-    </button>`
-  ).join("");
-
-  const dotNodes = Array.from(dotsEl.querySelectorAll(".dot"));
-
-  function setActiveItem(index) {
-    index = Math.max(0, Math.min(totalItems - 1, index));
-    
-    // Update slides visibility and animation
-    slideNodes.forEach((node, idx) => {
-      node.classList.remove('active', 'prev', 'next');
-      
-      if (idx === index) {
-        node.classList.add('active');
-        node.style.transitionDelay = '0ms';
-      } else if (idx < index) {
-        node.classList.add('prev');
-        node.style.transitionDelay = '0ms';
-      } else {
-        node.classList.add('next');
-        node.style.transitionDelay = '0ms';
-      }
-    });
-
-    // Scroll within the carousel container only (avoid page auto-scroll)
-    const activeItem = slideNodes[index];
-    if (activeItem) {
-      const itemLeft = activeItem.offsetLeft;
-      const targetLeft = itemLeft - (slidesEl.clientWidth - activeItem.clientWidth) / 2;
-      slidesEl.scrollTo({ left: targetLeft, behavior: 'smooth' });
-    }
-
-    // Update dots
-    dotNodes.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-      const progress = dot.querySelector('.dot-progress');
-      if (i === index && isAutoPlaying) {
-        progress.style.animation = `dotProgress ${AUTO_PLAY_DELAY}ms linear`;
-      } else {
-        progress.style.animation = 'none';
-      }
-    });
-
-    // Update arrows (always available in continuous carousel)
-    if (prevBtn) prevBtn.disabled = false;
-    if (nextBtn) nextBtn.disabled = false;
-    
-    currentIndex = index;
-  }
-
-  function goToItem(index) {
-    stopAutoPlay();
-    setActiveItem(index);
-    startAutoPlay();
-  }
-
-  function nextItem() {
-    const next = (currentIndex + 1) % totalItems;
-    setActiveItem(next);
-  }
-
-  function prevItem() {
-    const prev = (currentIndex - 1 + totalItems) % totalItems;
-    setActiveItem(prev);
-  }
-
-  // Auto-play functionality
-  function startAutoPlay() {
-    if (!isAutoPlaying) return;
-    stopAutoPlay();
-    autoPlayInterval = setInterval(nextItem, AUTO_PLAY_DELAY);
-  }
-
-  function stopAutoPlay() {
-    if (autoPlayInterval) {
-      clearInterval(autoPlayInterval);
-      autoPlayInterval = null;
-    }
-  }
-
-  function pauseAutoPlay() {
-    isAutoPlaying = false;
-    stopAutoPlay();
-  }
-
-  function resumeAutoPlay() {
-    isAutoPlaying = true;
-    startAutoPlay();
-  }
-
-  // Event listeners - Arrows
-  prevBtn?.addEventListener("click", () => {
-    prevItem();
-    stopAutoPlay();
-    setTimeout(startAutoPlay, 1000);
-  });
-
-  nextBtn?.addEventListener("click", () => {
-    nextItem();
-    stopAutoPlay();
-    setTimeout(startAutoPlay, 1000);
-  });
-
-  // Event listeners - Dots
-  dotNodes.forEach((dot) => {
-    dot.addEventListener("click", () => {
-      const index = Number(dot.dataset.index);
-      goToItem(index);
-    });
-  });
-
-  // Event listeners - Keyboard
-  carousel.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") {
-      prevItem();
-      stopAutoPlay();
-      setTimeout(startAutoPlay, 1000);
-    }
-    if (e.key === "ArrowRight") {
-      nextItem();
-      stopAutoPlay();
-      setTimeout(startAutoPlay, 1000);
-    }
-  });
-
-  // Touch/Swipe support
-  slidesEl.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-    pauseAutoPlay();
-  }, { passive: true });
-
-  slidesEl.addEventListener('touchmove', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  slidesEl.addEventListener('touchend', () => {
-    const swipeThreshold = 50;
-    const diff = touchStartX - touchEndX;
-
-    if (Math.abs(diff) > swipeThreshold) {
-      if (diff > 0) {
-        nextItem();
-      } else {
-        prevItem();
-      }
-    }
-    
-    setTimeout(resumeAutoPlay, 1000);
-  }, { passive: true });
-
-  // Pause on hover
-  carousel.addEventListener('mouseenter', pauseAutoPlay);
-  carousel.addEventListener('mouseleave', resumeAutoPlay);
-
-  // Pause on visibility change
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      stopAutoPlay();
-    } else {
-      startAutoPlay();
-    }
-  });
-
-  // Initialize
-  setActiveItem(0);
-  startAutoPlay();
-
-  // Handle window resize
-  let resizeTimeout;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      setActiveItem(currentIndex);
-    }, 150);
-  });
+  update();
+  window.addEventListener("scroll", update, { passive: true });
 })();
+
+/* BOOT */
+applyStaticTranslations();
+syncLanguageButtons();
+renderServices();
+renderPortfolio();
+observeReveals();
